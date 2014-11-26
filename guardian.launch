@@ -3,11 +3,10 @@
   
   <param name="/use_sim_time" value="false"/>
   <arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" />
-  <!-- <arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_description.launch" /> -->
+<!--   <arg name="robot_description" default="$(find guardian_description)/launch/guardian_description.launch" /> -->
 
   <!-- Launches guardian  description -->
   <include file="$(arg robot_description)" />
-  <!-- include file="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" / -->
   
 <!-- Combine joint values -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
@@ -19,7 +18,7 @@
   <include file="$(find guardian_node)/launch/guardian_roboteq.launch" />
 
 	<!-- tf publisher for localization pose -->	
-	<node pkg="dynamic_robot_localization" type="drl_pose_to_tf_publisher_node" name="drl_pose_to_tf_publisher_node_using_odometry" output="screen">
+	<node pkg="pose_to_tf_publisher" type="pose_to_tf_publisher_node" name="drl_pose_to_tf_publisher_node_using_odometry" output="screen">
 		<param name="publish_rate" type="double" value="100.0" />
 		<param name="pose_stamped_topic" type="str" value="" />
 		<param name="pose_with_covariance_stamped_topic" type="str" value="" />
@@ -30,6 +29,7 @@
 		<param name="invert_tf_transform" type="bool" value="false" />
 		<param name="invert_tf_hierarchy" type="bool" value="false" />
 		<param name="transform_pose_to_map_frame_id" type="bool" value="true" />
+		<param name="publish_initial_pose" type="bool" value="false" />
 	</node>
 
   <!-- Launches guardian pad -->
@@ -50,6 +50,8 @@
   
   <!-- Launches guardian  tilt laser cloud -->
   <include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" />
+
+  <!-- <include file="$(find guardian_config)/navigation/guardian_navigation.launch" /> -->
   
 </launch>
 
