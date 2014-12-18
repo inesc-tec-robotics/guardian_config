@@ -44,11 +44,11 @@
 		<arg name="yaml_configuration_tracking_filename" default="$(find dynamic_robot_localization)/yaml/configs/pose_tracking/cluttered_environments_dynamic_large_map_2d.yaml" />
 		<arg name="laser_scan_topics" default="/guardian/laser_tilt_front+/guardian/laser_horizontal_back" />
 		<arg name="sensor_frame_id" default="base_link" />
-		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
+		<arg name="publish_last_pose_tf_timeout_seconds" default="3.0" />
 		<arg name="use_dynamic_map_update" default="0" />
 		<arg name="publish_pose_tf_rate" default="50.0" />
 		<arg name="number_of_scans_to_assemble_per_cloud" default="4" />
-		<arg name="interpolate_scans" default="true" />
+		<arg name="dynamic_update_of_assembly_configuration_from_odometry_topic" default="/guardian/odom" />
 	</include>
 
 
