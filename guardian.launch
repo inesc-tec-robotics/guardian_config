@@ -1,28 +1,30 @@
 <?xml version="1.0"?>
 <launch>
-  
-  <param name="/use_sim_time" value="false"/>
-  <arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" />
-<!--   <arg name="robot_description" default="$(find guardian_description)/launch/guardian_description.launch" /> -->
+	<param name="/use_sim_time" value="false" />
+<!-- 	<group ns="base"> -->
+		<arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" />
+		<!-- <arg name="robot_description" default="$(find guardian_description)/launch/guardian_description.launch" /> -->
 
-  <!-- Launches guardian  description -->
-  <include file="$(arg robot_description)" />
-  
-<!-- Combine joint values -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+		<!-- Launches guardian description -->
+		<include file="$(arg robot_description)" />
 
-  <!-- RLY08 I/O device -->
-  <include file="$(find rly_08)/launch/rly_08.launch"/>
-  
-  <!-- Launches guardian  node -->
-  <include file="$(find guardian_node)/launch/guardian_roboteq.launch" />
+		<!-- Combine joint values -->
+		<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
+<!-- 	</group> -->
+	
+	
+	<!-- RLY08 I/O device -->
+	<include file="$(find rly_08)/launch/rly_08.launch" />
 
-	<!-- tf publisher for localization pose -->	
+	<!-- Launches guardian node -->
+	<include file="$(find guardian_node)/launch/guardian_roboteq.launch" />
+
+	<!-- tf publisher for localization pose -->
 	<node pkg="pose_to_tf_publisher" type="pose_to_tf_publisher_node" name="drl_pose_to_tf_publisher_node_using_odometry" output="screen">
 		<param name="publish_rate" type="double" value="100.0" />
 		<param name="pose_stamped_topic" type="str" value="" />
 		<param name="pose_with_covariance_stamped_topic" type="str" value="" />
-		<param name="odometry_topic" type="str" value="/guardian_node/odom" />
+		<param name="odometry_topic" type="str" value="/guardian/odom" />
 		<param name="map_frame_id" type="str" value="odom" />
 		<param name="odom_frame_id" type="str" value="base_footprint" />
 		<param name="base_link_frame_id" type="str" value="" />
@@ -32,26 +34,26 @@
 		<param name="publish_initial_pose" type="bool" value="false" />
 	</node>
 
-  <!-- Launches guardian pad -->
-  <include file="$(find guardian_config)/pad/guardian_pad.launch" />
+	<!-- Launches guardian pad -->
+	<include file="$(find guardian_config)/pad/guardian_pad.launch" />
 
-  <!-- BACK HOKUYO -->
-  <node name="hokuyo_back" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
-   	<!-- Starts up faster, but timestamps will be inaccurate. --> 
-	<param name="calibrate_time" type="bool" value="false"/>    
-	<!-- Set the port to connect to here -->
-	<param name="port" type="string" value="/dev/ttyACM2"/> 
-	<param name="intensity" type="bool" value="false"/>	
-	<param name="frame_id" type="string" value="hokuyo_back_laser_link"/>
-	<param name="min_ang" type="double" value="-2.0862138271331787"/>
-	<param name="max_ang" type="double" value="2.0923497676849365"/>
-	<remap from="/scan" to="/hokuyo_back_scan" />
-  </node>
-  
-  <!-- Launches guardian  tilt laser cloud -->
-  <include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" />
+	<!-- BACK HOKUYO -->
+	<node name="hokuyo_back" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
+		<!-- Starts up faster, but timestamps will be inaccurate. -->
+		<param name="calibrate_time" type="bool" value="false" />
+		<!-- Set the port to connect to here -->
+		<param name="port" type="string" value="/dev/ttyACM2" />
+		<param name="intensity" type="bool" value="false" />
+		<param name="frame_id" type="string" value="hokuyo_back_laser_link" />
+		<param name="min_ang" type="double" value="-2.0862138271331787" />
+		<param name="max_ang" type="double" value="2.0923497676849365" />
+		<remap from="/scan" to="/guardian/laser_horizontal_back" />
+	</node>
 
-  <!-- <include file="$(find guardian_config)/navigation/guardian_navigation.launch" /> -->
-  
+	<!-- Launches guardian tilt laser cloud -->
+	<include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" />
+
+	<include file="$(find guardian_config)/guardian_navigation.launch" />
+
 </launch>
 
