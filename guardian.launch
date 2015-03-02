@@ -17,7 +17,7 @@
 	<include file="$(find rly_08)/launch/rly_08.launch" />
 
 	<!-- Launches guardian node -->
-	<include file="$(find guardian_node)/launch/guardian_roboteq.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
 
 	<!-- tf publisher for localization pose -->
 	<node pkg="pose_to_tf_publisher" type="pose_to_tf_publisher_node" name="drl_pose_to_tf_publisher_node_using_odometry" output="screen">
