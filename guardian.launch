@@ -1,18 +1,20 @@
 <?xml version="1.0"?>
 <launch>
+	<arg name="use_tilt" default="false" />
+
 	<param name="/use_sim_time" value="false" />
-<!-- 	<group ns="base"> -->
-		<arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" />
-		<!-- <arg name="robot_description" default="$(find guardian_description)/launch/guardian_description.launch" /> -->
+	<!-- <group ns="base"> -->
+	<arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" />
+	<!-- <arg name="robot_description" default="$(find guardian_description)/launch/guardian_description.launch" /> -->
 
-		<!-- Launches guardian description -->
-		<include file="$(arg robot_description)" />
+	<!-- Launches guardian description -->
+	<include file="$(arg robot_description)" />
 
-		<!-- Combine joint values -->
-		<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
-<!-- 	</group> -->
-	
-	
+	<!-- Combine joint values -->
+	<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
+	<!-- </group> -->
+
+
 	<!-- RLY08 I/O device -->
 	<include file="$(find rly_08)/launch/rly_08.launch" />
 
@@ -21,7 +23,7 @@
 
 	<!-- tf publisher for localization pose -->
 	<node pkg="pose_to_tf_publisher" type="pose_to_tf_publisher_node" name="drl_pose_to_tf_publisher_node_using_odometry" output="screen">
-		<param name="publish_rate" type="double" value="100.0" />
+		<param name="publish_rate" type="double" value="-1.0" />
 		<param name="pose_stamped_topic" type="str" value="" />
 		<param name="pose_with_covariance_stamped_topic" type="str" value="" />
 		<param name="odometry_topic" type="str" value="/guardian/odom" />
@@ -50,10 +52,18 @@
 		<remap from="/scan" to="/guardian/laser_horizontal_back" />
 	</node>
 
-	<!-- Launches guardian tilt laser cloud -->
-	<include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" />
 
-	<include file="$(find guardian_config)/guardian_navigation.launch" />
+	<!-- TILTING HOKUYO -->
+	<!-- start hokuyo node -->
+	<include file="$(find robotnik_tilt_laser)/launch/hokuyo_urg_04lx.launch" />
+	<!-- include file="$(find robotnik_tilt_laser)/launch/hokuyo_utm30.launch"/ -->
+
+
+	<!-- Launches guardian tilt laser cloud -->
+	<include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" if="$(arg use_tilt)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="pioneer_kinect_tf" args="0 0 0 0 0 0 1 laser_tilt_mount_link laser_tilt_link" unless="$(arg use_tilt)" />
+
+	<!--<include file="$(find guardian_config)/guardian_navigation.launch" /> -->
 
 </launch>
 
