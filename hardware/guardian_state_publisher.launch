@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find guardian_description)/launch/guardian_description.launch" />
+	<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
+</launch>
