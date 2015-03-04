@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot_initial_x" default="0.0" />
+	<arg name="robot_initial_y" default="0.0" />
+	<arg name="robot_initial_yaw" default="0.0" />
+
+<!-- 	<arg name="map_file" default="$(find guardian_navigation)/maps/ship_interior/ship_interior.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_navigation)/maps/ship_interior/ship_interior_10cm.yaml" /> 
+
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+		<param name="frame_id" value="/map" />
+	</node>
+	
+	
+	<node pkg="fake_localization" type="fake_localization" name="fake_localization" output="screen">
+		<!-- <remap from="base_pose_ground_truth" to="odom_ground_truth" /> -->
+		<remap from="/base_pose_ground_truth" to="/guardian/base_pose_ground_truth"/>
+		<param name="odom_frame_id" value="odom" />
+		<param name="delta_x" value="$(arg robot_initial_x)" />
+		<param name="delta_y" value="$(arg robot_initial_y)" />
+		<param name="delta_yaw" value="$(arg robot_initial_yaw)" />
+		<param name="global_frame_id" value="map" />
+		<param name="base_frame_id" value="base_footprint" />
+		<param name="transform_tolerance" value="0.2" />
+	</node>
+</launch>
+ 
