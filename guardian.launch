@@ -1,69 +1,12 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="use_tilt" default="false" />
-
 	<param name="/use_sim_time" value="false" />
-	<!-- <group ns="base"> -->
-	<arg name="robot_description" default="$(find guardian_description)/launch/v7/guardian_tracks_description.launch" />
-	<!-- <arg name="robot_description" default="$(find guardian_description)/launch/guardian_description.launch" /> -->
-
-	<!-- Launches guardian description -->
-	<include file="$(arg robot_description)" />
-
-	<!-- Combine joint values -->
-	<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
-	<!-- </group> -->
-
+	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch"/>
+	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_lasers.launch" />
+	<include file="$(find guardian_config)/pad/guardian_pad.launch" />
 
 	<!-- RLY08 I/O device -->
 	<include file="$(find rly_08)/launch/rly_08.launch" />
-
-	<!-- Launches guardian node -->
-	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
-
-	<!-- tf publisher for localization pose -->
-	<node pkg="pose_to_tf_publisher" type="pose_to_tf_publisher_node" name="drl_pose_to_tf_publisher_node_using_odometry" output="screen">
-		<param name="publish_rate" type="double" value="-1.0" />
-		<param name="pose_stamped_topic" type="str" value="" />
-		<param name="pose_with_covariance_stamped_topic" type="str" value="" />
-		<param name="odometry_topic" type="str" value="/guardian/odom" />
-		<param name="map_frame_id" type="str" value="odom" />
-		<param name="odom_frame_id" type="str" value="base_footprint" />
-		<param name="base_link_frame_id" type="str" value="" />
-		<param name="invert_tf_transform" type="bool" value="false" />
-		<param name="invert_tf_hierarchy" type="bool" value="false" />
-		<param name="transform_pose_to_map_frame_id" type="bool" value="true" />
-		<param name="publish_initial_pose" type="bool" value="false" />
-	</node>
-
-	<!-- Launches guardian pad -->
-	<include file="$(find guardian_config)/pad/guardian_pad.launch" />
-
-	<!-- BACK HOKUYO -->
-	<node name="hokuyo_back" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
-		<!-- Starts up faster, but timestamps will be inaccurate. -->
-		<param name="calibrate_time" type="bool" value="false" />
-		<!-- Set the port to connect to here -->
-		<param name="port" type="string" value="/dev/ttyACM2" />
-		<param name="intensity" type="bool" value="false" />
-		<param name="frame_id" type="string" value="hokuyo_back_laser_link" />
-		<param name="min_ang" type="double" value="-2.0862138271331787" />
-		<param name="max_ang" type="double" value="2.0923497676849365" />
-		<remap from="/scan" to="/guardian/laser_horizontal_back" />
-	</node>
-
-
-	<!-- TILTING HOKUYO -->
-	<!-- start hokuyo node -->
-	<include file="$(find robotnik_tilt_laser)/launch/hokuyo_urg_04lx.launch" />
-	<!-- include file="$(find robotnik_tilt_laser)/launch/hokuyo_utm30.launch"/ -->
-
-
-	<!-- Launches guardian tilt laser cloud -->
-	<include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" if="$(arg use_tilt)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="pioneer_kinect_tf" args="0 0 0 0 0 0 1 laser_tilt_mount_link laser_tilt_link" unless="$(arg use_tilt)" />
-
-	<!--<include file="$(find guardian_config)/guardian_navigation.launch" /> -->
-
 </launch>
 
