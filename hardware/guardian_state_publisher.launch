@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+	<!--<param name="robot_description" command="$(find xacro)/xacro.py '$(find guardian_description)/urdf/old_files/guardian_wheels_laser_up.urdf.xacro'" />-->
 	<include file="$(find guardian_description)/launch/guardian_description.launch" />
 	<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
 </launch>
