@@ -1,0 +1,58 @@
+<launch>
+
+<node name="oea_controller" pkg="oea_controller" type="oea_controller" output="screen">
+ 
+ <!-- simulation and real robot -->
+   <remap from="/cmd_vel" to="/guardian/cmd_vel"/>
+   <remap from="/front_laser_scan" to="/guardian/laser_tilt_front"/>
+   <remap from="/back_laser_scan" to="/guardian/laser_horizontal_back"/> 
+
+
+	<param name="global_frame_id" value="map"/> 
+	<param name="base_frame_id" value="base_footprint"/>
+
+<!-- Tolerance and velocity parameters --> 
+        <param name="tolerance_d" value="0.1"/>
+        <param name="tolerance_erro_theta2" value="85"/>
+	<!--<param name="tolerance_yaw" value="0.087"/> --><!-- 4.98 deg -->
+	<param name="tolerance_yaw" value="0.0436332313"/> <!-- 2.5 deg -->
+	 
+
+	<param name="min_linear_vel" value="0.03"/> 
+	<param name="max_linear_vel" value="0.5"/>
+ 
+	<param name="min_angular_vel" value="0.02"/> 
+	<param name="max_angular_vel" value="0.4"/> 
+        <param name="max_angular_vel_hard" value="999.0"/> 
+
+<!-- PD controller parameters --> 
+ <!--  simulation -->
+ <!--	<param name="Kp" value="0.7"/> 
+	<param name="Kd" value="0.02"/> 
+	<param name="Ki" value="0.0"/> -->
+
+ <!-- real robot -->
+        <param name="Kp" value="4.4"/> 
+	<param name="Kd" value="0.01"/> 
+	<param name="Ki" value="0.0"/> -->
+
+	<param name="limit_velocity" value="true"/>
+	<param name="keep_ratio" value="true"/>  <!-- keep v/w cte while limiting velocity -->
+	<param name="K" value="1"/> 
+
+	<param name="timeout" value="30"/> 
+	<param name="obstacle_detection" value="true"/> 
+	<param name="error_deviation" value="5.0"/>  <!-- degrees -->
+
+
+</node> 
+
+   	<node pkg="hector_trajectory_server" type="hector_trajectory_server" respawn="false" name="hector_trajectory_server" output="screen">
+		<param name="target_frame_name" value="map" />
+		<param name="source_frame_name" value="base_footprint" />
+		<param name="trajectory_update_rate" value="3" />
+		<param name="trajectory_publish_rate" value="1" />
+	</node>	
+
+</launch>
+
