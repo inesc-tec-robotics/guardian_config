@@ -6,7 +6,7 @@
 	<include file="$(find guardian_config)/hardware/guardian_driver_lasers.launch" />
 	<include file="$(find guardian_config)/pad/guardian_pad.launch" />
 
-	<!-- RLY08 I/O device -->
-	<include file="$(find rly_08)/launch/rly_08.launch" />
+	<include file="$(find guardian_config)/localization/guardian_localization.launch" />
+	<include file="$(find guardian_config)/control/guardian_control.launch" />
 </launch>
 

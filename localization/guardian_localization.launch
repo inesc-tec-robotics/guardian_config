@@ -55,7 +55,7 @@
 		
 		<!-- tf configurations -->
 		<arg name="publish_pose_tf_rate" default="10.0" />
-		<arg name="publish_last_pose_tf_timeout_seconds" default="-2.0" />
+		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
 		
 		<!-- map update -->
 		<arg name="use_octomap_for_dynamic_map_update" default="false" />
