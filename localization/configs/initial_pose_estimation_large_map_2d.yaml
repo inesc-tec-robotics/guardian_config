@@ -62,7 +62,7 @@ initial_pose_estimators_matchers:
 #        iterative_closest_point_2d:
 #        iterative_closest_point_non_linear:
 #        iterative_closest_point_generalized:
-            convergence_time_limit_seconds: 2.0
+            convergence_time_limit_seconds: 1.0
             max_correspondence_distance: 10.0
             transformation_epsilon: 1e-6
             euclidean_fitness_epsilon: 1e-6

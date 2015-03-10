@@ -60,7 +60,7 @@ tracking_matchers:
 #        iterative_closest_point_with_normals:
 #        iterative_closest_point_generalized:
 #        normal_distributions_transform_2d:
-            convergence_time_limit_seconds: 0.075
+            convergence_time_limit_seconds: 0.125
             max_correspondence_distance: 2.0
             transformation_epsilon: 1e-6
             euclidean_fitness_epsilon: 1e-6
@@ -106,7 +106,7 @@ transformation_validators:
         max_transformation_angle: 0.7
         max_transformation_distance: 0.5
         max_new_pose_diff_angle: 1.1
-        max_new_pose_diff_distance: 0.7
+        max_new_pose_diff_distance: 0.9
         max_root_mean_square_error: 0.1
         max_outliers_percentage: 0.4
         min_inliers_angular_distribution: 0.07

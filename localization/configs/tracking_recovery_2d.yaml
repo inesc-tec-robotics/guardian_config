@@ -4,7 +4,7 @@ tracking_recovery_matchers:
 #        iterative_closest_point_2d:
 #        iterative_closest_point_non_linear:
 #        iterative_closest_point_generalized:
-            convergence_time_limit_seconds: 0.085
+            convergence_time_limit_seconds: 0.250
             max_correspondence_distance: 5.0
             transformation_epsilon: 1e-6
             euclidean_fitness_epsilon: 1e-6
@@ -24,7 +24,7 @@ tracking_recovery_matchers:
 transformation_validators_tracking_recovery:
     euclidean_transformation_validator:
         max_transformation_angle: 2.09
-        max_transformation_distance: 1.0
+        max_transformation_distance: 1.5
         max_new_pose_diff_angle: 3.14
         max_new_pose_diff_distance: 2.5
         max_root_mean_square_error: 0.15
