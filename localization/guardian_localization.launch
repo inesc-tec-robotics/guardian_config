@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	<!-- ======================================================================================================================== -->
- 	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" />
+ 	<arg name="map_file" default="$(find guardian_config)/localization/maps/mostra/mostra_up_2015-03-11-17-09-26.yaml" />
 	<arg name="robot_initial_x" default="4.0" />
 	<arg name="robot_initial_y" default="2.0" />
 	<arg name="robot_initial_yaw" default="0.0" />
@@ -21,7 +21,8 @@
 	
 		<!-- main configurations -->
 		<arg name="yaml_configuration_filters_filename" default="$(find guardian_config)/localization/configs/filters_large_map_2d.yaml" />
-		<arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" />
+		<arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" />
+		<!-- <arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" /> -->
 		<arg name="yaml_configuration_tracking_filename" default="$(find guardian_config)/localization/configs/tracking_cluttered_environments_dynamic_large_map_2d.yaml" />
 		<arg name="yaml_configuration_recovery_filename" default="$(find guardian_config)/localization/configs/tracking_recovery_2d.yaml" />
 	
@@ -35,6 +36,7 @@
 		<arg name="robot_initial_x" default="$(arg robot_initial_x)" />
 		<arg name="robot_initial_y" default="$(arg robot_initial_y)" />
 		<arg name="robot_initial_yaw" default="$(arg robot_initial_yaw)" />
+		<arg name="publish_initial_pose" default="0" />
 		
 		<!-- sensor data from point cloud topic -->
 		<arg name="reference_costmap_topic" default="/map" />
@@ -55,7 +57,7 @@
 		
 		<!-- tf configurations -->
 		<arg name="publish_pose_tf_rate" default="10.0" />
-		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
+		<arg name="publish_last_pose_tf_timeout_seconds" default="-2.0" />
 		
 		<!-- map update -->
 		<arg name="use_octomap_for_dynamic_map_update" default="false" />

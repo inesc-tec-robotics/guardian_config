@@ -1,6 +1,6 @@
 <launch>
   <node name="decision" pkg="srau_decision" type="srau_decision_node">
-    <rosparam command="load" file="$(find guardian_config)/decision/pose_goals.yaml" ns="pose_goals"/>
+    <rosparam command="load" file="$(find guardian_config)/decision/pose_goals_mostra.yaml" ns="pose_goals"/>
     <param name="min_position_error" value="0.2"/>
     <param name="min_orientation_error" value="5"/>
     <param name="synchronous" value="false"/>

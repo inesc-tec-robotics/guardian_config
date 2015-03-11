@@ -7,45 +7,45 @@ normal_estimators:
         normal_estimator_sac:
             model_type: 'SACMODEL_LINE'
             method_type: 'SAC_RANSAC'
-            inlier_distance_threshold: 0.1
+            inlier_distance_threshold: 0.07
             max_iterations: 50
             sac_termination_probability: 0.99
             optimize_coefficients: true
             min_model_radius: -1.0
             max_model_radius: -1.0
             random_samples_max_k: 0
-            random_samples_max_radius: 0.5
-            minimum_inliers_percentage: 0.5
+            random_samples_max_radius: 0.15
+            minimum_inliers_percentage: 0.25
     ambient_pointcloud:
         compute_normals_when_tracking_pose: false
         compute_normals_when_recovering_pose_tracking: false
-        compute_normals_when_estimating_initial_pose: false
+        compute_normals_when_estimating_initial_pose: true
         display_normals: false
         normal_estimator_sac:
             model_type: 'SACMODEL_LINE'
             method_type: 'SAC_RANSAC'
-            inlier_distance_threshold: 0.1
+            inlier_distance_threshold: 0.07
             max_iterations: 50
             sac_termination_probability: 0.99
             optimize_coefficients: true
             min_model_radius: -1.0
             max_model_radius: -1.0
             random_samples_max_k: 0
-            random_samples_max_radius: 0.5
-            minimum_inliers_percentage: 0.5
+            random_samples_max_radius: 0.15
+            minimum_inliers_percentage: 0.25
 
 
 curvature_estimators:
     reference_pointcloud:
         principal_curvatures_estimation:
             search_k: 0
-            search_radius: 0.5
+            search_radius: 0.17
             curvature_type: 'CURVATURE_TYPE_MEAN'
             update_normals_with_principal_component_directions: false
     ambient_pointcloud:
         principal_curvatures_estimation:
             search_k: 0
-            search_radius: 0.5
+            search_radius: 0.17
             curvature_type: 'CURVATURE_TYPE_MEAN'
             update_normals_with_principal_component_directions: false
 

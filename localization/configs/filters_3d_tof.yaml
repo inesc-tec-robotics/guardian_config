@@ -1,11 +1,19 @@
 localization_point_type: 'PointXYZRGBNormal'
 
+publish_topic_names:
+    #reference_pointcloud_publish_topic: ''
+    aligned_pointcloud_publish_topic: ''
+    pose_with_covariance_stamped_publish_topic: ''
+    #localization_detailed_publish_topic: ''
+    #localization_diagnostics_publish_topic: ''
+    #localization_times_publish_topic: ''
+
 filters:
     reference_pointcloud:
         1_voxel_grid:
-            leaf_size_x: 0.02
-            leaf_size_y: 0.02
-            leaf_size_z: 0.02
+            leaf_size_x: 0.05
+            leaf_size_y: 0.05
+            leaf_size_z: 0.05
             filter_limit_field_name: 'z'
             filter_limit_min: -5.0
             filter_limit_max: 5.0
@@ -21,9 +29,9 @@ filters:
 #            filtered_cloud_publish_topic: ''
     ambient_pointcloud:
         1_voxel_grid:
-            leaf_size_x: 0.07
-            leaf_size_y: 0.07
-            leaf_size_z: 0.07
+            leaf_size_x: 0.05
+            leaf_size_y: 0.05
+            leaf_size_z: 0.05
             filter_limit_field_name: 'z'
             filter_limit_min: -4.0
             filter_limit_max: 4.0
@@ -47,7 +55,7 @@ filters:
             box_min_z: 0.4
             box_max_x: 2.0
             box_max_y: 2.0
-            box_max_z: 3.0
+            box_max_z: 2.5
             box_translation_x: 0.0
             box_translation_y: 0.0
             box_translation_z: 0.0
@@ -57,9 +65,9 @@ filters:
             invert_selection: false
             filtered_cloud_publish_topic: ''
         5_random_sample:
-            number_of_random_samples: 150
+            number_of_random_samples: 175
             invert_sampling: false
-            filtered_cloud_publish_topic: 'ambient_pointcloud_filtered'
+            filtered_cloud_publish_topic: '' # ambient_pointcloud_filtered
 #        6_statistical_outlier_removal:
 #            number_of_neighbors_for_mean_distance_estimation: 6
 #            standard_deviation_multiplier: 2.0
