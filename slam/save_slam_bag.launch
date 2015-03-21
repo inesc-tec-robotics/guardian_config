@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="record_topics" default="/guardian/cmd_vel /guardian/laser_horizontal_back /guardian/laser_tilt_front /guardian/odom /joy /rosout /tf /tf_static" />
+	<arg name="compress_rosbags" default="1" />
+	<arg name="record_rosbags_options" default="--bz2" if="$(arg compress_rosbags)"/>
+	<arg name="record_rosbags_options" default="" unless="$(arg compress_rosbags)"/>
+
+	<arg name="world_rosbag_folder" default="$(find dynamic_robot_localization_tests)/datasets/mostra_up" />
+	<arg name="world_rosbag_filename" default="$(arg world_rosbag_folder)/mostra_up" />
+
+	<node pkg="rosbag" type="record" name="rosbag_record" args="$(arg record_rosbags_options) -o $(arg world_rosbag_filename) $(arg record_topics)" />
+</launch>
+
+<!-- kill -SIGINT `pidof record` -->

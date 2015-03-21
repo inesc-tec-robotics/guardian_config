@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="use_tilt" default="false" />
+	
 	<!-- BACK HOKUYO -->
-	<node name="hokuyo_back" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
+	<node name="hokuyo_back" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen" >
 		<remap from="/scan" to="/guardian/laser_horizontal_back" />
-		<!-- Set the port to connect to here -->
 		<param name="port" type="string" value="/dev/laser_back_cable" />
-		<!-- Starts up faster, but timestamps will be inaccurate. -->
-		<param name="calibrate_time" type="bool" value="false" />
+		<param name="calibrate_time" type="bool" value="true" />
 		<param name="intensity" type="bool" value="false" />
 		<param name="frame_id" type="string" value="hokuyo_back_laser_link" />
 		<param name="min_ang" type="double" value="-2.0862138271331787" />
@@ -15,19 +14,16 @@
 	</node>
 
 	<!-- FRONT HOKUYO -->
-	<node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
+	<node name="hokuyo_front" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen" >
 		<remap from="/scan" to="/guardian/laser_tilt_front" />
-		<!-- Set the port to connect to here -->
-		<param name="port" type="string" value="/dev/laser_front_cable" />
-		<!-- Starts up faster, but timestamps will be inaccurate. --> 
+		<param name="port" type="string" value="/dev/laser_front_cable" /> 
 		<param name="calibrate_time" type="bool" value="true"/> 
 		<param name="intensity" type="bool" value="false"/>
-		<!-- Set frame_id tilt -->
 		<param name="frame_id" value="hokuyo_frontal_laser_link"/>
 		<param name="min_ang" value="-2.094395102"/>
 		<param name="max_ang" value="2.094395102"/>
 	</node>
 
 	<include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" if="$(arg use_tilt)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="pioneer_kinect_tf" args="0 0 0 0 0 0 1 laser_tilt_mount_link laser_tilt_link" unless="$(arg use_tilt)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="front_laser_static_tf" args="0 0 0 0 0 0 1 laser_tilt_mount_link laser_tilt_link" unless="$(arg use_tilt)" />
 </launch>
