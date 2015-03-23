@@ -1,0 +1,18 @@
+<launch>
+
+	<node name="oea_planner" pkg="layered_astar" type="oea_planner" output="screen">
+
+	   	<remap from="/map" to="/map_navigation"/>
+
+		<param name="global_frame_id" value="map"/>
+		<param name="base_frame_id" value="base_footprint"/>
+		<param name="robot_x_size" value="1.30"/>
+		<param name="robot_y_size" value="0.85"/> <!-- tracks: 0.55 --><!-- wheels: 0.8 -->
+		<param name="inflate_map_borders" value="false"/>
+		<param name="stop_at_exact_target" value="false"/> <!-- true = stops in the exact cell, false = stops at one of the neighbors -->
+		
+
+	</node> 
+
+</launch>
+
