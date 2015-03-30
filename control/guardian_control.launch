@@ -32,7 +32,7 @@
 	<param name="Ki" value="0.0"/> -->
 
  <!-- real robot -->
-    <param name="Kp" value="4.4"/> 
+    <param name="Kp" value="3.4"/> 
 	<param name="Kd" value="0.01"/> 
 	<param name="Ki" value="0.0"/>
 
@@ -45,7 +45,7 @@
 	<param name="error_deviation" value="5.0"/>  <!-- degrees -->
 
 	<!-- Laser safety area is a rectangle around each laser -->
-	<param name="forward_safety_distance" value="0.4"/>  <!-- laser distance (forward) (meters) -->
+	<param name="forward_safety_distance" value="0.25"/>  <!-- laser distance (forward) (meters) -->
 	<param name="lateral_safety_distance" value="0.4"/>  <!-- laser distance (lateral) (meters) -->
 	<param name="send_markers" value="true"/>  <!-- send laser markers (safety area) -->
 	
