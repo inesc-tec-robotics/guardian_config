@@ -1,0 +1,7 @@
+image: lab_10mm_with_glass_windows.pgm
+resolution: 0.01
+origin: [-4.225, -3.085, 0.0] # 422 309 px
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

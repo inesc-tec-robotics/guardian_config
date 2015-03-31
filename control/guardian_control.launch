@@ -45,8 +45,8 @@
 	<param name="error_deviation" value="5.0"/>  <!-- degrees -->
 
 	<!-- Laser safety area is a rectangle around each laser -->
-	<param name="forward_safety_distance" value="0.25"/>  <!-- laser distance (forward) (meters) -->
-	<param name="lateral_safety_distance" value="0.4"/>  <!-- laser distance (lateral) (meters) -->
+	<param name="forward_safety_distance" value="0.15"/>  <!-- laser distance (forward) (meters) -->
+	<param name="lateral_safety_distance" value="0.32"/>  <!-- laser distance (lateral) (meters) -->
 	<param name="send_markers" value="true"/>  <!-- send laser markers (safety area) -->
 	
 	<param name="stop_with_joystick" value="false"/>  <!-- use joystick to stop the robot  -->
