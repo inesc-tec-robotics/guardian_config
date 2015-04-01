@@ -12,10 +12,9 @@
 	<param name="base_frame_id" value="base_footprint"/>
 
 <!-- Tolerance and velocity parameters --> 
-    <param name="tolerance_d" value="0.05"/>
-    <param name="tolerance_yaw" value="0.0436332313"/> <!-- 2.5 deg -->
-	<!--<param name="tolerance_yaw" value="0.087"/> --><!-- 4.98 deg -->
-    
+    <param name="tolerance_d" value="0.05"/> <!-- meters -->
+    <param name="tolerance_yaw_deg" value="2.5"/> <!-- degrees -->
+
     <param name="tolerance_erro_theta2" value="85"/>
 
 	<param name="min_linear_vel" value="0.03"/> 
@@ -27,7 +26,7 @@
 
 <!-- PD controller parameters --> 
  <!--  simulation -->
- <!--	<param name="Kp" value="0.7"/> 
+ <!--	<param name="Kp" value="0.8"/> 
 	<param name="Kd" value="0.02"/> 
 	<param name="Ki" value="0.0"/> -->
 
@@ -43,6 +42,7 @@
 	<param name="timeout" value="30"/> 
 	<param name="obstacle_detection" value="true"/> 
 	<param name="error_deviation" value="5.0"/>  <!-- degrees -->
+	<param name="scale_on_curves" value="0.3"/>  <!-- 30% speed -->
 
 	<!-- Laser safety area is a rectangle around each laser -->
 	<param name="forward_safety_distance" value="0.15"/>  <!-- laser distance (forward) (meters) -->
