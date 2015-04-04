@@ -5,7 +5,7 @@
 	<arg name="record_rosbags_options" default="--bz2" if="$(arg compress_rosbags)"/>
 	<arg name="record_rosbags_options" default="" unless="$(arg compress_rosbags)"/>
 
-	<arg name="world_rosbag_folder" default="$(find dynamic_robot_localization_tests)/datasets/mostra_up" />
+	<arg name="world_rosbag_folder" default="$(find guardian_config)/slam/datasets/crob_lab" />
 	<arg name="world_rosbag_filename" default="$(arg world_rosbag_folder)/mostra_up" />
 
 	<node pkg="rosbag" type="record" name="rosbag_record" args="$(arg record_rosbags_options) -o $(arg world_rosbag_filename) $(arg record_topics)" />

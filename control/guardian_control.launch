@@ -18,10 +18,10 @@
     <param name="tolerance_erro_theta2" value="85"/>
 
 	<param name="min_linear_vel" value="0.03"/> 
-	<param name="max_linear_vel" value="0.3"/>
+	<param name="max_linear_vel" value="0.25"/>
  
 	<param name="min_angular_vel" value="0.02"/> 
-	<param name="max_angular_vel" value="0.4"/> 
+	<param name="max_angular_vel" value="0.25"/> 
     <param name="max_angular_vel_hard" value="999.0"/> 
 
 <!-- PD controller parameters --> 
@@ -37,7 +37,7 @@
 
 	<param name="limit_velocity" value="true"/>
 	<param name="keep_ratio" value="true"/>  <!-- keep v/w cte while limiting velocity -->
-	<param name="K" value="1"/> 
+	<param name="K" value="0"/> 
 
 	<param name="timeout" value="30"/> 
 	<param name="obstacle_detection" value="true"/> 
@@ -46,10 +46,10 @@
 
 	<!-- Laser safety area is a rectangle around each laser -->
 	<param name="forward_safety_distance" value="0.15"/>  <!-- laser distance (forward) (meters) -->
-	<param name="lateral_safety_distance" value="0.32"/>  <!-- laser distance (lateral) (meters) -->
+	<param name="lateral_safety_distance" value="0.3"/>  <!-- laser distance (lateral) (meters) -->
 	<param name="send_markers" value="true"/>  <!-- send laser markers (safety area) -->
 	
-	<param name="stop_with_joystick" value="false"/>  <!-- use joystick to stop the robot  -->
+	<param name="stop_with_joystick" value="true"/>  <!-- use joystick to stop the robot  -->
 
 </node> 
 
