@@ -1,7 +1,7 @@
 <launch>
   <node name="decision" pkg="srau_decision" type="srau_decision_node">
   	<remap from="/pose_goal" to="/move_base_simple/goal"/>
-    <rosparam command="load" file="$(find srau_decision)/config/pose_goals_planner.yaml" ns="pose_goals"/>
+    <rosparam command="load" file="$(find guardian_config)/decision/pose_goals_LAB_FNR.yaml" ns="pose_goals"/>
     <param name="min_position_error" value="0.1"/>
     <param name="min_orientation_error" value="2.5"/>
     <param name="synchronous" value="false"/>

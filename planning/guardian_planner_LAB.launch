@@ -1,17 +1,17 @@
 <launch>
 
 	<!-- this map has windows as obstacles --> 
-	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam_navigation.yaml" />
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/ship_walls_navigation.yaml" />
 
 	<node name="map_server_navigation" pkg="map_server" type="map_server" args="$(arg map_file)">
 		<param name="frame_id" value="map" />
 		<remap from="/map" to="/map_navigation"/>
-	</node> -->
+	</node> 
 
 
 	<node name="oea_planner" pkg="layered_astar" type="oea_planner" output="screen">
 
-	   <!--	<remap from="/map" to="/map_navigation"/> -->
+	   	<remap from="/map" to="/map_navigation"/>
 
 		<param name="global_frame_id" value="map"/>
 		<param name="base_frame_id" value="base_footprint"/>

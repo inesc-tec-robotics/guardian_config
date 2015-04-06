@@ -12,13 +12,16 @@
 	<param name="base_frame_id" value="base_footprint"/>
 
 <!-- Tolerance and velocity parameters --> 
-    <param name="tolerance_d" value="0.05"/> <!-- meters -->
+    <param name="tolerance_d" value="0.035"/> <!-- meters -->
     <param name="tolerance_yaw_deg" value="2.5"/> <!-- degrees -->
+
+    <param name="next_target_tol_d" value="0.055"/> <!-- meters -->
+    <param name="next_target_tol_yaw_deg" value="2.5"/> <!-- degrees -->
 
     <param name="tolerance_erro_theta2" value="85"/>
 
 	<param name="min_linear_vel" value="0.03"/> 
-	<param name="max_linear_vel" value="0.25"/>
+	<param name="max_linear_vel" value="0.2"/>
  
 	<param name="min_angular_vel" value="0.02"/> 
 	<param name="max_angular_vel" value="0.25"/> 
@@ -32,17 +35,17 @@
 
  <!-- real robot -->
     <param name="Kp" value="3.4"/> 
-	<param name="Kd" value="0.01"/> 
+	<param name="Kd" value="0.005"/> 
 	<param name="Ki" value="0.0"/>
 
 	<param name="limit_velocity" value="true"/>
 	<param name="keep_ratio" value="true"/>  <!-- keep v/w cte while limiting velocity -->
-	<param name="K" value="0"/> 
+	<param name="K" value="0.0"/> 
 
 	<param name="timeout" value="30"/> 
 	<param name="obstacle_detection" value="true"/> 
-	<param name="error_deviation" value="5.0"/>  <!-- degrees -->
-	<param name="scale_on_curves" value="0.3"/>  <!-- 30% speed -->
+	<param name="error_deviation" value="30"/>  <!-- degrees -->
+	<param name="scale_on_curves" value="0.35"/>  <!-- 30% speed -->
 
 	<!-- Laser safety area is a rectangle around each laser -->
 	<param name="forward_safety_distance" value="0.15"/>  <!-- laser distance (forward) (meters) -->
