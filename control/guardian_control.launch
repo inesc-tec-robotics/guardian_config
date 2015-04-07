@@ -52,7 +52,7 @@
 	<param name="lateral_safety_distance" value="0.3"/>  <!-- laser distance (lateral) (meters) -->
 	<param name="send_markers" value="true"/>  <!-- send laser markers (safety area) -->
 	
-	<param name="stop_with_joystick" value="true"/>  <!-- use joystick to stop the robot  -->
+	<param name="stop_with_joystick" value="false"/>  <!-- use joystick to stop the robot  -->
 
 </node> 
 
