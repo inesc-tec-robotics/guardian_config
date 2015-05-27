@@ -19,11 +19,11 @@
 		<param name="port" type="string" value="/dev/laser_front_cable" /> 
 		<param name="calibrate_time" type="bool" value="true"/> 
 		<param name="intensity" type="bool" value="false"/>
-		<param name="frame_id" value="hokuyo_frontal_laser_link"/>
+		<param name="frame_id" value="hokuyo_front_laser_link"/>
 		<param name="min_ang" value="-2.094395102"/>
 		<param name="max_ang" value="2.094395102"/>
 	</node>
 
 	<include file="$(find robotnik_tilt_laser)/launch/robotnik_tilt_laser_cloud.launch" if="$(arg use_tilt)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="front_laser_static_tf" args="0 0 0 0 0 0 1 laser_tilt_mount_link laser_tilt_link" unless="$(arg use_tilt)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="front_laser_static_tf" args="0 0 0 0 0 0 1 hokuyo_front_laser_tilt_support_link hokuyo_front_laser_tilt_axis_link" unless="$(arg use_tilt)" />
 </launch>
