@@ -1,12 +1,16 @@
 <?xml version="1.0"?>
 <launch>
 	<param name="/use_sim_time" value="false" />
-	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch"/>
+	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_lasers.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_relays.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_structure_io.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_imu.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_rpi.launch" />
 	<include file="$(find guardian_config)/pad/guardian_pad.launch" />
 
+	<!-- <include file="$(find guardian_config)/localization/ukf_sensor_fusion_odom_imu.launch" /> -->
 	<include file="$(find guardian_config)/localization/guardian_localization.launch" />
 	<include file="$(find guardian_config)/control/guardian_control.launch" />
 </launch>

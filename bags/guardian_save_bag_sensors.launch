@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find guardian_config)/bags/guardian_save_bag.launch" >
+		<arg name="save_only_sensor_data" default="1" />
+	</include>
+</launch>

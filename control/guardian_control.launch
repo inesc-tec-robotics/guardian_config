@@ -69,8 +69,8 @@
    	<node pkg="hector_trajectory_server" type="hector_trajectory_server" respawn="false" name="hector_trajectory_server" output="screen">
 		<param name="target_frame_name" value="map" />
 		<param name="source_frame_name" value="base_footprint" />
-		<param name="trajectory_update_rate" value="3" />
-		<param name="trajectory_publish_rate" value="1" />
+		<param name="trajectory_update_rate" value="10" />
+		<param name="trajectory_publish_rate" value="10" />
 	</node>	
 
 </launch>

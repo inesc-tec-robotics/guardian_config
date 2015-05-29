@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<include file="$(find guardian_config)/slam/save_guardian_bag.launch" >
-		<arg name="save_only_sensor_data" default="0" />
-	</include>
-</launch>

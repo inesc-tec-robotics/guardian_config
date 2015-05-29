@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="save_only_sensor_data" default="0" />
+	<arg name="save_map_data" default="0" />
+	
+	<arg name="sensor_topics"  default="/camera/depth/camera_info /camera/depth/image_raw/compressedDepth /guardian/cmd_vel /guardian/imu/mpu_9150/imu /guardian/imu/mpu_9150/magnetic_field /guardian/imu/mpu_9150/pose /guardian/imu/mpu_9150/pose_ned /guardian/imu/mpu_9150/pose_with_covariance /guardian/imu/mpu_9150/vector_rpy /guardian/imu/mpu_9150/vector_rpy_ned /guardian/imu/um7/imu /guardian/imu/um7/magnetic_field /guardian/imu/um7/pose /guardian/imu/um7/temperature /guardian/imu/um7/vector_rpy /guardian/laser_horizontal_back /guardian/laser_tilt_front /guardian/odom /guardian_node/state /joint_states /joy /rosout /tf /tf_static" />
+	<arg name="localization_topics"  default="/dynamic_robot_localization/localization_pose /dynamic_robot_localization/localization_detailed /dynamic_robot_localization/localization_times /dynamic_robot_localization/aligned_pointcloud_outliers /dynamic_robot_localization/aligned_pointcloud_inliers" />
+	<arg name="navigation_topics"  default="/Astar_plan /oea_controller/back_laser_visualization_markers /oea_controller/front_laser_visualization_markers /oea_controller/next_target /move_base_simple/goal /trajectory" />
+	<arg name="map_topics" default="/map /map_navigation" />
+	
+	<arg name="record_topics_temp" if="$(arg save_only_sensor_data)" default="$(arg sensor_topics)" />
+	<arg name="record_topics_temp" unless="$(arg save_only_sensor_data)" default="$(arg sensor_topics) $(arg localization_topics) $(arg navigation_topics)" />
+	<arg name="record_topics" if="$(arg save_map_data)" default="$(arg record_topics_temp) $(arg map_topics)" />
+	<arg name="record_topics" unless="$(arg save_map_data)" default="$(arg record_topics_temp)" />
+	
+	<arg name="compress_rosbags" default="0" />
+	<arg name="record_rosbags_options" default="--bz2" if="$(arg compress_rosbags)"/>
+	<arg name="record_rosbags_options" default="" unless="$(arg compress_rosbags)"/>
+
+	<arg name="world_rosbag_folder" default="$(find guardian_config)/bags/datasets/lab" />
+	<arg name="world_rosbag_filename" default="lab" />
+
+	<node pkg="rosbag" type="record" name="rosbag_record" args="$(arg record_rosbags_options) -o $(arg world_rosbag_folder)/$(arg world_rosbag_filename) $(arg record_topics)" />
+</launch>
+
+
+<!-- Usage: -->
+<!-- roslaunch guardian_config guardian_save_bag.launch & -->
+<!-- kill -SIGINT `pidof record` -->

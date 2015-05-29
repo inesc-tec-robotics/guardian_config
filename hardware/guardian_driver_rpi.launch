@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_vector_rpy" args="/rpi/imu/vector_rpy /guardian/imu/mpu_9150/vector_rpy" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_vector_rpy_ned" args="/rpi/imu/vector_rpy_ned /guardian/imu/mpu_9150/vector_rpy_ned" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_pose" args="/rpi/imu/pose /guardian/imu/mpu_9150/pose" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_pose_ned" args="/rpi/imu/pose_ned /guardian/imu/mpu_9150/pose_ned" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_pose_with_covariance" args="/rpi/imu/pose_with_covariance /guardian/imu/mpu_9150/pose_with_covariance" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_imu" args="/rpi/imu/imu /guardian/imu/mpu_9150/imu" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_magnetic_field" args="/rpi/imu/magnetic_field /guardian/imu/mpu_9150/magnetic_field" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_pressure" args="/rpi/imu/pressure /guardian/imu/mpu_9150/pressure" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_temperature" args="/rpi/imu/temperature /guardian/imu/mpu_9150/temperature" output="screen" />
+	<node pkg="topic_tools" type="relay" name="relay_rpi_imu_humidity" args="/rpi/imu/humidity /guardian/imu/mpu_9150/humidity" output="screen" />
+</launch>

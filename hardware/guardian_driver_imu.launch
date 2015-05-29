@@ -1,8 +1,13 @@
 <launch>
-  <node pkg="um7" type="um7_driver" name="imu" output="screen">
-    <param name="port" value="/dev/ttyUSB0"/>
-    <param name="frame_id" value="imu_link"/>
-    <param name="mag_updates" value="false"/>
-    <param name="covariance" value="0 0 0 0 0 0 0 0 0"/>
-  </node>
+	<node pkg="um7" type="um7_driver" name="imu" output="screen" ns="/guardian/">
+		<param name="port" value="/dev/imu_um7" />
+		<param name="frame_id" value="imu_um7_link" />
+		<param name="mag_updates" value="false" />
+		<param name="covariance" value="0 0 0 0 0 0 0 0 0" />
+		<remap from="imu/data" to="imu/um7/imu" />
+		<remap from="imu/mag" to="imu/um7/magnetic_field" />
+		<remap from="imu/rpy" to="imu/um7/vector_rpy" />
+		<remap from="imu/pose" to="imu/um7/pose" />
+		<remap from="imu/temperature" to="imu/um7/temperature" />
+	</node>
 </launch>
