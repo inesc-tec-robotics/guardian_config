@@ -13,10 +13,10 @@
 		<param name="base_frame_id" value="base_footprint"/>
 
 	<!-- Tolerance and velocity parameters --> 
-	    <param name="tolerance_d" value="0.1"/>
+	    <param name="tolerance_d" value="0.05"/>
 		<param name="tolerance_yaw_deg" value="5.0"/>
 
-		<param name="tolerance_d_last_point" value="0.05"/>
+		<param name="tolerance_d_last_point" value="0.02"/>
 		<param name="tolerance_yaw_deg_last_point" value="2.5"/> 
 
 	    <param name="tolerance_erro_theta2" value="85"/> 
