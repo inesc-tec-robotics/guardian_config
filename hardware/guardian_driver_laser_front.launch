@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="use_tilt" default="false" />
+	<arg name="use_tilt" default="true" />
 
 	<!-- FRONT HOKUYO -->
 	<node name="hokuyo_front" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
@@ -9,11 +9,11 @@
 		<param name="calibrate_time" type="bool" value="true" />
 		<param name="intensity" type="bool" value="false" />
 		<param name="frame_id" value="hokuyo_front_laser_link" />
-		<param name="min_ang" value="-2.094395102" />
-		<param name="max_ang" value="2.094395102" />
+		<param name="min_ang" value="-2.0943951" />
+		<param name="max_ang" value="2.0943951" />
 	</node>
 
-	<node name="robotnik_tilt_laser_cloud" pkg="robotnik_tilt_laser" type="robotnik_tilt_laser_cloud_node" output="screen" if="$(arg use_tilt)" >
+	<node name="robotnik_tilt_laser" pkg="robotnik_tilt_laser" type="robotnik_tilt_laser_node" output="screen" if="$(arg use_tilt)" >
 		<rosparam command="load" file="$(find guardian_config)/hardware/tilt_laser.yaml" />
 		<param name="publish_tf" type="bool" value="false" />
 		<param name="publish_joint" type="bool" value="true" />

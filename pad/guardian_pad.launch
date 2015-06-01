@@ -15,7 +15,7 @@
   <!-- <param name="cmd_topic_ptz" value="/axis/cmd_ptz" type="string"/> -->
   
   <rosparam command="load" file="$(find guardian_config)/pad/ps3.yaml" />
-  <node name="guardian_pad" pkg="guardian_pad" type="guardian_pad" output="screen"/>
+  <node name="guardian_pad" pkg="guardian_pad" type="guardian_pad" output="screen" />
   
 </launch>
 
