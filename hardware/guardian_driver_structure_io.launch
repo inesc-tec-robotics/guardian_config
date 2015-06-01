@@ -5,5 +5,6 @@
 		<arg name="depth_registered_processing" default="false" />
 		<arg name="depth_processing" default="true" />
 		<arg name="depth_registration" default="false" />
+		<arg name="depth_camera_info_url" default="file://$(find guardian_config)/hardware/camera_info/depth_PS1080_PrimeSense.yaml" />
 	</include>
 </launch>

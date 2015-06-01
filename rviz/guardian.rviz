@@ -7,7 +7,6 @@ Panels:
         - /Global Options1
         - /TF1/Frames1
         - /Sensors1
-        - /Localization1
       Splitter Ratio: 0.613248
     Tree Height: 843
   - Class: rviz/Selection
@@ -92,94 +91,27 @@ Visualization Manager:
       Value: false
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_footprint:
-          Value: true
-        base_link:
-          Value: true
-        camera_depth_frame:
-          Value: true
-        camera_depth_optical_frame:
-          Value: true
-        camera_link:
-          Value: true
-        camera_link_support_axis:
-          Value: true
-        camera_rgb_frame:
-          Value: true
-        camera_rgb_optical_frame:
-          Value: true
-        hokuyo_back_laser_link:
-          Value: true
-        hokuyo_front_laser_link:
-          Value: true
-        hokuyo_front_laser_tilt_axis_link:
-          Value: true
-        hokuyo_front_laser_tilt_support_link:
-          Value: true
-        imu_mpu_9150_link:
-          Value: true
-        imu_um7_link:
-          Value: true
-        left_track:
-          Value: true
-        map:
-          Value: true
-        odom:
-          Value: true
-        right_track:
-          Value: true
-        support_bottom_link:
-          Value: true
-        support_top_link:
-          Value: true
-      Marker Scale: 0.25
+      Marker Scale: 0.1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          odom:
-            base_footprint:
-              base_link:
-                hokuyo_back_laser_link:
-                  {}
-                hokuyo_front_laser_tilt_support_link:
-                  hokuyo_front_laser_tilt_axis_link:
-                    hokuyo_front_laser_link:
-                      {}
-                imu_mpu_9150_link:
-                  {}
-                imu_um7_link:
-                  {}
-                left_track:
-                  {}
-                right_track:
-                  {}
-                support_bottom_link:
-                  support_top_link:
-                    camera_link_support_axis:
-                      camera_link:
-                        camera_depth_frame:
-                          camera_depth_optical_frame:
-                            {}
-                        camera_rgb_frame:
-                          camera_rgb_optical_frame:
-                            {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 0.7
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: true
-      Enabled: true
+      Enabled: false
       Name: Map
       Topic: /map
-      Value: true
+      Value: false
     - Class: rviz/Group
       Displays:
         - Angle Tolerance: 0.1
@@ -243,7 +175,7 @@ Visualization Manager:
           Position Transformer: XYZ
           Queue Size: 10
           Selectable: true
-          Size (Pixels): 3
+          Size (Pixels): 10
           Size (m): 0.05
           Style: Points
           Topic: /guardian/laser_tilt_front
@@ -263,7 +195,7 @@ Visualization Manager:
           Axes Radius: 0.1
           Class: rviz/Pose
           Color: 255; 25; 0
-          Enabled: true
+          Enabled: false
           Head Length: 0.3
           Head Radius: 0.1
           Name: Pose IMU MPU-9150
@@ -271,7 +203,7 @@ Visualization Manager:
           Shaft Radius: 0.05
           Shape: Axes
           Topic: /guardian/imu/mpu_9150/pose
-          Value: true
+          Value: false
         - Alpha: 0.3
           Class: rviz_plugin_tutorials/Imu
           Color: 85; 170; 255
@@ -285,7 +217,7 @@ Visualization Manager:
           Axes Radius: 0.05
           Class: rviz/Pose
           Color: 85; 170; 255
-          Enabled: true
+          Enabled: false
           Head Length: 0.3
           Head Radius: 0.1
           Name: Pose UM7
@@ -293,12 +225,12 @@ Visualization Manager:
           Shaft Radius: 0.05
           Shape: Axes
           Topic: /guardian/imu/um7/pose
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 3.47126
-            Min Value: 0.759511
+            Max Value: 4.83619
+            Min Value: 0.810931
             Value: true
           Axis: X
           Channel Name: intensity
@@ -317,7 +249,7 @@ Visualization Manager:
           Queue Size: 1
           Selectable: true
           Size (Pixels): 1
-          Size (m): 0.005
+          Size (m): 0.001
           Style: Points
           Topic: /camera/depth/points
           Use Fixed Frame: true
@@ -325,14 +257,36 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
+          Image Topic: /camera/ir/image
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Image Kinect IR
+          Normalize Range: true
+          Queue Size: 1
+          Transport Hint: compressedDepth
+          Value: false
+        - Class: rviz/Image
+          Enabled: false
           Image Topic: /camera/depth/image_raw
           Max Value: 1
           Median window: 5
           Min Value: 0
-          Name: Image Kinect
+          Name: Image Kinect Depth
           Normalize Range: true
           Queue Size: 1
           Transport Hint: compressedDepth
+          Value: false
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /camera/rgb/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Image Kinect Color
+          Normalize Range: true
+          Queue Size: 1
+          Transport Hint: raw
           Value: false
       Enabled: true
       Name: Sensors
@@ -696,7 +650,7 @@ Visualization Manager:
               Value: true
           Enabled: true
           Name: Cloud registration
-      Enabled: true
+      Enabled: false
       Name: Localization
     - Class: rviz/Group
       Displays:
@@ -769,7 +723,7 @@ Visualization Manager:
           Marker Topic: /oea_controller/warning_laser_visualization_markers
           Name: MarkerArray laser
           Namespaces:
-            laser_namespace: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -777,7 +731,7 @@ Visualization Manager:
           Marker Topic: /oea_controller/protective_laser_visualization_markers
           Name: MarkerArray
           Namespaces:
-            laser_namespace: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -817,7 +771,7 @@ Visualization Manager:
           Use Fixed Frame: true
           Use rainbow: true
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Navigation
     - Class: rviz/Group
       Displays:
@@ -882,7 +836,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -902,30 +856,37 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
-      Class: rviz/TopDownOrtho
+      Class: rviz/Orbit
+      Distance: 15.6934
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Focal Point:
+        X: 1.48905
+        Y: -0.0460488
+        Z: 0.247726
       Name: Current View
       Near Clip Distance: 0.01
-      Scale: 78.0011
+      Pitch: 0.6898
       Target Frame: <Fixed Frame>
-      Value: TopDownOrtho (rviz)
-      X: 3.9773
-      Y: 0.307165
+      Value: Orbit (rviz)
+      Yaw: 4.6882
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
   Height: 1056
   Hide Left Dock: false
-  Hide Right Dock: true
-  Image Kinect:
+  Hide Right Dock: false
+  Image Kinect Color:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd000000040000000000000198000003dafc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003da000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000180049006d0061006700650020004b0069006e0065006300740000000280000001820000001600ffffff000000010000010f000003dafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000003da000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d0065000000000000000780000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000005e2000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Image Kinect Depth:
+    collapsed: false
+  Image Kinect IR:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd000000040000000000000198000003dafc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003da000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000240049006d0061006700650020004b0069006e0065006300740020004400650070007400680000000307000000fb0000001600fffffffb000000240049006d0061006700650020004b0069006e00650063007400200043006f006c006f0072000000034a000000b80000001600fffffffb0000001e0049006d0061006700650020004b0069006e00650063007400200049005200000002ec000001160000001600ffffff000000010000010f000003dafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000028000003da000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d0065000000000000000780000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000004cd000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -933,7 +894,7 @@ Window Geometry:
   Tool Properties:
     collapsed: false
   Views:
-    collapsed: true
+    collapsed: false
   Width: 1920
   X: 0
   Y: 24

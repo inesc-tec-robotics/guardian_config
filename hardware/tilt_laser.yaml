@@ -1,0 +1,18 @@
+port:  /dev/ttyUSB_DXL
+#base_laser_frame_id: laser
+#tilt_laser_frame_id: tilt_laser
+base_laser_frame_id: laser_tilt_mount_link
+tilt_laser_frame_id: laser_tilt_link
+joint_name: hokuyo_front_laser_tilt_joint
+
+publish_tf: false
+publish_joint: true
+tilt_angle_home_pps:    -87000   # horizontal
+tilt_angle_up_pps:      -50000   # looking at floor
+tilt_angle_down_pps:    -120000  # looking at ceiling
+
+# displacement from base_laser_frame_id to tilt_laser_fram_id (if exists) [m]
+x_offset:  0.0    
+y_offset:  0.0      
+z_offset:  0.0
+velocity: 1000.0 
