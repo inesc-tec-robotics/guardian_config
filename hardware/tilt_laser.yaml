@@ -1,11 +1,11 @@
-port:  /dev/ttyUSB_DXL
+port: '/dev/dynamixel'
 
 publish_tf: false
 publish_joint: true
 joint_name: hokuyo_front_laser_tilt_joint
 
-tilt_angle_home_pps:        -87000.0
-tilt_angle_floor_degrees:   45.0
-tilt_angle_ceiling_degrees: -45.0
+tilt_angle_home_pps:        -86800.0
+tilt_angle_floor_degrees:   50.0
+tilt_angle_ceiling_degrees: -50.0
 
-velocity: 1500.0 
+velocity: 1000.0 # rpm = velocity / gear_reduction_ratio
