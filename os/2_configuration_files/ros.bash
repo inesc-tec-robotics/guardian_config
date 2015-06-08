@@ -3,7 +3,7 @@
 #######################################################################################################################
 # ROS setup
 # add the following line to /home/guardian/.bashrc in order to setup the ros environment when using a terminal / ssh
-# source /home/guardian/catkin_ws/src/guardian_config/os/ros.bash
+# source /home/guardian/catkin_ws/src/guardian_config/os/2_configuration_files/ros.bash
 #######################################################################################################################
 
 

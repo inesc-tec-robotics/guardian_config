@@ -5,13 +5,15 @@ echo "##### Pairing joystick (http://wiki.ros.org/ps3joy/Tutorials/PairingJoysti
 echo "####################################################################################################"
 
 
-sudo bash
+sudo su
+source /opt/ros/indigo/setup.bash
 rosrun ps3joy sixpair
 
 
 echo "--------------------------------------------------------------------"
 echo "--- To use the joystick use:"
-echo "sudo bash"
+echo "source /opt/ros/indigo/setup.bash"
+echo "sudo su"
 echo "rosrun ps3joy ps3joy.py"
 
 

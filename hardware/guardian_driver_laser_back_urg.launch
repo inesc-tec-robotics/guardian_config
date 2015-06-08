@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- BACK HOKUYO -->
+	<node name="hokuyo_back" pkg="urg_node" type="urg_node" respawn="false" output="screen">
+		<remap from="/scan" to="/guardian/laser_horizontal_back" />
+		<param name="serial_port" type="string" value="/dev/laser_back_cable" />
+		<param name="calibrate_time" type="bool" value="true" />
+		<param name="intensity" type="bool" value="false" />
+		<param name="frame_id" type="string" value="hokuyo_back_laser_link" />
+		<!-- <param name="min_ang" type="double" value="-2.0943951" /> -->
+		<!-- <param name="max_ang" type="double" value="2.0943951" /> -->
+	</node>
+</launch>
