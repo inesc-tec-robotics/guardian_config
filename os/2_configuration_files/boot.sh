@@ -4,7 +4,7 @@
 #########################################################################################
 # ROS setup during boot
 # add the following lines to /etc/rc.local in order to automatically start the ros nodes at boot:
-# /home/guardian/guardian_ws/src/guardian_config/os/boot.sh
+# /home/guardian/catkin_ws/src/guardian_config/os/2_configuration_files/boot.sh
 # exit 0
 #########################################################################################
 
@@ -17,7 +17,7 @@ export ROS_HOME=/home/guardian/.ros
 
 
 # ros environment
-source /home/guardian/guardian_ws/src/guardian_config/os/ros.bash
+source /home/guardian/catkin_ws/src/guardian_config/os/2_configuration_files/ros.bash
 
 
 # if the roscore is in another computer, uncomment the next line in order to wait for roscore to startup
@@ -33,4 +33,4 @@ roslaunch guardian_config guardian.launch --screen -v > /home/guardian/.ros/log/
 # tailf -n 100000 /home/guardian/.ros/log/guardian.log
 
 # use the following command to visual monitor the running nodes (mount /home/guardian with nfs)
-# rosrun rviz rviz -d /home/guardian/guardian_ws/src/guardian_config/rviz/guardian.rviz
+# rosrun rviz rviz -d /home/guardian/catkin_ws/src/guardian_config/rviz/guardian.rviz
