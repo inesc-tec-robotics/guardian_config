@@ -1,0 +1,7 @@
+image: /home/carloscosta/catkin_ws/src/guardian_config/localization/maps/robotica2015/robotica2015.pgm
+resolution: 0.020000
+origin: [-5.960000, -5.380000, -nan]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
