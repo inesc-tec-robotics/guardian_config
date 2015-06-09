@@ -19,4 +19,3 @@ echo "# <ROS catkin setup.bash>" >> ~/.bashrc
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 echo "alias ctkmake='catkin_make -C $HOME/catkin_ws/'" >> ~/.bashrc
 echo "# </ROS catkin setup.bash>" >> ~/.bashrc
-source ~/catkin_ws/devel/setup.bash

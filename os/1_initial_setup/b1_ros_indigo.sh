@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "####################################################################################################"
-echo "##### Installing ROS Groovy (http://wiki.ros.org/indigo/Installation/Ubuntu)"
+echo "##### Installing ROS Indigo (http://wiki.ros.org/indigo/Installation/Ubuntu)"
 echo "####################################################################################################"
 
 

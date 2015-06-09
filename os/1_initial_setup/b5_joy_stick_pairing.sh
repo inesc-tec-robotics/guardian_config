@@ -11,9 +11,7 @@ rosrun ps3joy sixpair
 
 
 echo "--------------------------------------------------------------------"
-echo "--- To use the joystick use:"
-echo "source /opt/ros/indigo/setup.bash"
+echo "--- To use the joystick run:"
 echo "sudo su"
+echo "source /opt/ros/indigo/setup.bash"
 echo "rosrun ps3joy ps3joy.py"
-
-

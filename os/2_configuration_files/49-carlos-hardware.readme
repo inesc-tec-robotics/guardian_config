@@ -10,7 +10,7 @@ udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
 
 - Add rule to /etc/udev/rules.d/
 ex:
-SUBSYSTEM=="tty", ATTRS{idProduct}=="ffee", ATTRS{idVendor}=="04d8", ATTRS{serial}=="00010571", SYMLINK+="relays_cable"
+SUBSYSTEM=="tty", ATTRS{idProduct}=="ffee", ATTRS{idVendor}=="04d8", ATTRS{serial}=="00010571", SYMLINK+="name_of_symlink_inside_dev_folder"
 
 - Restart udev
 sudo service udev restart

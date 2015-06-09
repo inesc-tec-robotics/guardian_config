@@ -13,7 +13,7 @@ ssh-add ~/.ssh/id_rsa
 git clone git@github.com:carlosmccosta/dynamic_robot_localization.git 				# required
 git clone git@github.com:carlosmccosta/pose_to_tf_publisher.git 					# required
 git clone git@github.com:carlosmccosta/laserscan_to_pointcloud.git 					# required
-git clone git@github.com:carlosmccosta/octomap_mapping.git 							# only needed if dynamic map update is required
+git clone git@github.com:carlosmccosta/octomap_mapping.git 							# only needed for dynamic map update
 git clone git@github.com:carlosmccosta/dynamic_robot_localization_tests.git 		# only needed to test the localization system
 git clone git@github.com:carlosmccosta/robot_localization_tools.git 				# only needed to test the localization system
 git clone git@github.com:inesc-tec-robotics/guardian-ros-pkg.git 					# only needed to test the localization system
