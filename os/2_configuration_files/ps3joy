@@ -18,10 +18,10 @@ export LOGNAME=guardian
 export ROS_HOME=/home/guardian/.ros
 
 # ros environment
-source /opt/ros/indigo/setup.bash
+source /opt/ros/hydro/setup.bash
 
 # path to daemon
-DAEMON=/opt/ros/indigo/lib/ps3joy/ps3joy.py
+DAEMON=/opt/ros/hydro/lib/ps3joy/ps3joy.py
 
 # startup args
 DAEMON_OPTS="--inactivity-timeout=900 --redirect-output=/var/log/ps3joy.log"

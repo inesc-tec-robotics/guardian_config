@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 echo "####################################################################################################"
 echo "##### Setting github inesc account public keys (https://help.github.com/articles/generating-ssh-keys)"
@@ -11,7 +11,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 
-echo "\n\n"
+echo -e "\n\n"
 echo "----------------------------------------------------------------------------------------------------"
 echo ">>>>> Public key generated"
 echo ">>>>> Add to github account the ssh key: "

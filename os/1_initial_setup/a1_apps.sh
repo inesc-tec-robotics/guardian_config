@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 echo "####################################################################################################"
 echo "##### Installing packages"
 echo "####################################################################################################"
 
 
-echo "\n\n"
+echo -e "\n\n"
 echo "------------------------------------------------"
 echo ">>>>> Adding repositories"
 echo "------------------------------------------------"
@@ -39,50 +39,54 @@ sudo add-apt-repository ppa:webupd8team/nemo -y
 
 
 
-echo "\n\n"
+echo -e "\n\n"
 echo "------------------------------------------------"
 echo ">>>>> Updating packages index"
 echo "------------------------------------------------"
 
-
+sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 
 
 
-echo "\n\n"
+echo -e "\n\n"
 echo "------------------------------------------------"
 echo ">>>>> Installing packages"
 echo "------------------------------------------------"
 
 # >>>>> Programming
-# +++ gcc | g++
-#sudo apt-get install gcc-4.9 g++-4.9 -y
-#dpkg -l | grep gcc | awk '{print $2}'
-#sudo update-alternatives --remove-all gcc
-#sudo update-alternatives --remove-all g++
-#sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 50
-#sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 50
-#sudo update-alternatives --config gcc
-#sudo update-alternatives --config g++
 
-sudo apt-get install gdb gdb-doc gdbserver -y
+# +++ gcc | g++
+sudo apt-get install gcc-4.9 g++-4.9 -y --force-yes
+dpkg -l | grep gcc | awk '{print $2}'
+sudo update-alternatives --remove-all gcc
+sudo update-alternatives --remove-all g++
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 50
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 50
+sudo update-alternatives --config gcc
+sudo update-alternatives --config g++
+
 
 # latest g++ requires latest gdb
-#mkdir -p ~/gdb
-#cd ~/gdb
-#wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.1.tar.gz
-#tar xfv gdb-7.9.1.tar.gz
-#cd gdb-7.9.1
-#./configure --prefix=/usr
-#make
-#sudo make install
-#cd ~/
-#rm -rf ~/gdb
+sudo apt-get install libncurses5-dev -y
+sudo apt-get install texinfo -y
+mkdir -p ~/gdb
+cd ~/gdb
+wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.tar.gz
+tar xfv gdb-7.9.tar.gz
+cd gdb-7.9
+./configure --prefix=/usr
+make
+sudo make install
+cd ~/
+rm -rf ~/gdb
+
+
 
 sudo apt-get install cmake cmake-gui -y
-# sudo apt-get install ccache -y
-# sudo apt-get install colorgcc -y
+sudo apt-get install ccache -y
+sudo apt-get install colorgcc -y
 sudo apt-get install oracle-java7-installer -y
 sudo apt-get install sublime-text-installer -y
 sudo apt-get install meshlab -y
@@ -128,3 +132,10 @@ sudo apt-get install sysstat -y
 sudo apt-get install htop -y
 sudo apt-get install iotop -y
 sudo apt-get install python-pip -y
+
+
+
+echo -e "\n\n"
+echo "####################################################################################################"
+echo "##### Finished"
+echo "####################################################################################################"
