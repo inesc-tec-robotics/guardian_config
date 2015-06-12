@@ -11,7 +11,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 
-echo -e "\n\n"
+echo "\n\n"
 echo "----------------------------------------------------------------------------------------------------"
 echo ">>>>> Public key generated"
 echo ">>>>> Add to github account the ssh key: "
