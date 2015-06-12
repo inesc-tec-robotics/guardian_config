@@ -8,7 +8,7 @@ catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
 #######################################################################################################################
 # ROS setup
 # add the following line to /home/${user_name}/.bashrc in order to setup the ros environment when using a terminal / ssh
-# source ${catkin_folder}/src/guardian_config/os/2_configuration_files/ros.bash
+# source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.bash
 #######################################################################################################################
 
 

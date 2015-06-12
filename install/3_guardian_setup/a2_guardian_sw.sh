@@ -12,12 +12,13 @@ source /opt/ros/${ros_version}/setup.bash
 
 cd ${catkin_folder}/src
 
-
+echo -e "\n\n"
 echo "--------------------------------------------------------------------"
 echo "--- Cloning RobotnikAutomation packages"
 git clone -b ${default_branch_name} https://github.com/RobotnikAutomation/rly_08.git
 
 
+echo -e "\n\n"
 echo "--------------------------------------------------------------------"
 echo "--- Cloning inesc-tec-robotics packages"
 git clone -b master https://github.com/inesc-tec-robotics/crob_gazebo_models.git
@@ -34,12 +35,14 @@ sudo make install
 cd ${catkin_folder}/src
 
 
+echo -e "\n\n"
 echo "--------------------------------------------------------------------"
 echo "--- Cloning localization packages"
 git clone -b ${default_branch_name} https://github.com/inesc-tec-robotics/dynamic_robot_localization.git
 ./dynamic_robot_localization/install/setup.sh
 
 
+echo -e "\n\n"
 echo "--------------------------------------------------------------------"
 echo "--- Cloning navigation packages"
 echo "---> TODO <---"
@@ -48,14 +51,23 @@ echo "---> TODO <---"
 cd ${catkin_folder}
 rosdep update
 
+echo -e "\n\n"
 echo "--------------------------------------------------------------------"
 echo "--- Installing packages dependencies"
 rosdep check --from-paths src --ignore-src --rosdistro=${ros_version}
 rosdep install --from-paths src --ignore-src --rosdistro=${ros_version} -y
 
+echo -e "\n\n"
 echo "--------------------------------------------------------------------"
 echo "--- Remaining dependencies that must be manually checked"
 rosdep check --from-paths src --ignore-src --rosdistro=${ros_version}
+
+
+echo -e "\n\n"
+echo "--------------------------------------------------------------------"
+echo "--- Building catkin workspace"
+cd ${catkin_folder}
+catkin_make
 
 
 echo -e "\n\n"

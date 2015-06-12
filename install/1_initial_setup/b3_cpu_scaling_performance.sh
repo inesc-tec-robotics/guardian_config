@@ -1,21 +1,20 @@
 #!/usr/bin/env sh
 
 echo "####################################################################################################"
-echo "##### Pairing joystick (http://wiki.ros.org/ps3joy/Tutorials/PairingJoystickAndBluetoothDongle)"
+echo "##### Setting CPU governor to performance"
 echo "####################################################################################################"
 
-ros_version=${1:-"hydro"}
+sudo apt-get install cpufrequtils -y
+sudo sh -c 'echo GOVERNOR="performance" > /etc/default/cpufrequtils'
+sudo update-rc.d ondemand disable
+sudo /etc/init.d/cpufrequtils restart
 
-sudo su
-source /opt/ros/${ros_version}/setup.bash
-rosrun ps3joy sixpair
 
+echo -e "\n\n"
+echo "===================================================================================================="
+echo "===== cpufreq-info"
 
-echo "--------------------------------------------------------------------"
-echo "--- To use the joystick run:"
-echo "sudo su"
-echo "source /opt/ros/${ros_version}/setup.bash"
-echo "rosrun ps3joy ps3joy.py"
+cpufreq-info
 
 
 echo -e "\n\n"

@@ -43,7 +43,7 @@ echo "##########################################################################
 echo "##### Setting boot script"
 echo "####################################################################################################"
 
-sudo sh -c "echo '${catkin_folder}/src/guardian_config/os/2_configuration_files/boot.sh ${ros_version} ${user_name} ${catkin_folder}' > /etc/rc.local"
+sudo sh -c "echo '${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.sh ${ros_version} ${user_name} ${catkin_folder}' > /etc/rc.local"
 sudo sh -c "echo 'exit 0' >> /etc/rc.local"
 
 echo -e "\n\n"
@@ -60,7 +60,7 @@ echo "##########################################################################
 
 mkdir -p "/home/${user_name}/.ros/config/"
 cp "${script_dir}/rosconsole.config" "/home/${user_name}/.ros/config/rosconsole.config"
-echo "source ${catkin_folder}/src/guardian_config/os/2_configuration_files/ros.bash ${ros_version} ${user_name} ${catkin_folder}" >> /home/${user_name}/.bashrc
+echo "source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.bash ${ros_version} ${user_name} ${catkin_folder}" >> /home/${user_name}/.bashrc
 
 echo -e "\n\n"
 echo "####################################################################################################"
