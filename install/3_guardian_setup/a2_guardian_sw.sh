@@ -87,7 +87,11 @@ rosdep check --from-paths src --ignore-src --rosdistro=${ros_version}
 echo -e "\n\n"
 echo "===================================================================="
 echo "=== Building catkin workspace"
-cd ${catkin_folder}
+cd "${catkin_folder}"
+
+find ./src -name "*.sh" -exec chmod +x {} \;
+find ./src -name "*.cfg" -exec chmod +x {} \;
+
 catkin_make
 
 
