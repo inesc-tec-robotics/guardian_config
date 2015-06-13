@@ -22,6 +22,7 @@
 	<run_depend>joy</run_depend>
 	<run_depend>map-server</run_depend>
 	<run_depend>openni2_launch</run_depend>
+	<run_depend>ps3joy</run_depend>
 	<run_depend>robot_localization</run_depend>
 	<run_depend>robot_state_publisher</run_depend>
 	<run_depend>rosbag</run_depend>

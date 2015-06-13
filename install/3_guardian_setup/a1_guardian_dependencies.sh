@@ -23,6 +23,7 @@ sudo apt-get install ros-${ros_version}-move-base -y
 sudo apt-get install ros-${ros_version}-openni-launch -y
 sudo apt-get install ros-${ros_version}-openni2_launch -y
 sudo apt-get install ros-${ros_version}-pr2-common -y
+sudo apt-get install ros-${ros_version}-ps3joy -y
 sudo apt-get install ros-${ros_version}-robot-localization -y
 sudo apt-get install ros-${ros_version}-robot-state-publisher -y
 sudo apt-get install ros-${ros_version}-ros-control -y

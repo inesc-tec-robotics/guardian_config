@@ -110,6 +110,9 @@ sudo apt-get install gimp gimp-data gimp-data-extras gimp-plugin-registry -y
 
 
 # >>>>> OS tools
+sudo apt-get install ssh -y
+sudo apt-get install openssh-server -y
+sudo apt-get install nfs-kernel-server -y
 sudo apt-get install terminator -y
 sudo apt-get install nemo nemo-fileroller -y
 sudo apt-get install nemo-compare nemo-media-columns -y
