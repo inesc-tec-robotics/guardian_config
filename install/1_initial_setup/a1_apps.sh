@@ -69,19 +69,22 @@ sudo update-alternatives --config g++
 
 
 # latest g++ requires latest gdb
-sudo apt-get install libncurses5-dev -y
-sudo apt-get install texinfo -y
-mkdir -p ~/gdb
-cd ~/gdb
-wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.tar.gz
-tar xfv gdb-7.9.tar.gz
-cd gdb-7.9
-./configure --prefix=/usr
-make
-sudo make install
-cd ~/
-rm -rf ~/gdb
-
+gdb --version | grep "7.9" > /dev/null
+if [ $? -ne 0 ]
+then
+	sudo apt-get install libncurses5-dev -y
+	sudo apt-get install texinfo -y
+	mkdir -p ~/gdb
+	cd ~/gdb
+	wget http://ftp.gnu.org/gnu/gdb/gdb-7.9.tar.gz
+	tar xfv gdb-7.9.tar.gz
+	cd gdb-7.9
+	./configure --prefix=/usr
+	make
+	sudo make install
+	cd ~/
+	rm -rf ~/gdb
+fi
 
 
 sudo apt-get install cmake cmake-gui -y
