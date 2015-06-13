@@ -21,6 +21,7 @@
 		<arg name="sensor_frame_id" default="base_footprint" />
 	
 		<!-- main configurations -->
+		<arg name="nodes_respawn" default="false" />
 		<arg name="yaml_configuration_filters_filename" default="$(find guardian_config)/localization/configs/filters_large_map_2d.yaml" />
 <!-- 		<arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" /> -->
 		<arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" />

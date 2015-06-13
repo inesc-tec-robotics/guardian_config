@@ -23,7 +23,6 @@ fi
 
 ${script_dir}/1_initial_setup/c1_ros.sh ${ros_version} ${user_name}
 ${script_dir}/1_initial_setup/c2_catkin_workspace.sh ${ros_version} ${catkin_folder} ${user_name}
-${script_dir}/1_initial_setup/d1_clock_syncronization.sh
 echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Finished setting up development apps and ROS"
@@ -49,7 +48,8 @@ echo "***** Setting up guardian software"
 echo "****************************************************************************************************"
 ${script_dir}/3_guardian_setup/a1_guardian_dependencies.sh ${ros_version}
 ${script_dir}/3_guardian_setup/a2_guardian_sw.sh ${ros_version} ${default_branch_name} ${catkin_folder}
-${script_dir}/3_guardian_setup/a3_joy_stick_pairing.sh ${ros_version}
+${script_dir}/3_guardian_setup/a3_clock_syncronization.sh
+${script_dir}/3_guardian_setup/a4_joy_stick_pairing.sh ${ros_version}
 echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Finished setting up guardian software"

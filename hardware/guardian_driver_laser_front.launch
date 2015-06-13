@@ -17,6 +17,6 @@
 		<rosparam command="load" file="$(find guardian_config)/hardware/tilt_laser.yaml" />
 	</node>
 
-	<node pkg="tf2_ros" type="static_transform_publisher" name="front_laser_static_tf"
-		args="0 0 0 0 0 0 1 hokuyo_front_laser_tilt_support_link hokuyo_front_laser_tilt_axis_link" unless="$(arg use_tilt)" />
+	<node pkg="tf" type="static_transform_publisher" name="front_laser_static_tf"
+		args="0 0 0 0 0 0 1 hokuyo_front_laser_tilt_support_link hokuyo_front_laser_tilt_axis_link 20" unless="$(arg use_tilt)" />
 </launch>
