@@ -3,7 +3,7 @@
 
  <!-- joy node -->
   <node name="joy" pkg="joy" type="joy_node" respawn="false">
-    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="dev" type="string" value="/dev/input/ps3joy" />
     <param name="deadzone" value="0.12" />
   </node>
 
