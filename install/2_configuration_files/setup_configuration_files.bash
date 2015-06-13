@@ -43,7 +43,7 @@ echo "##########################################################################
 echo "##### Setting boot script"
 echo "####################################################################################################"
 
-sudo sh -c "echo '${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.sh ${ros_version} ${user_name} ${catkin_folder}' > /etc/rc.local"
+sudo sh -c "echo '${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.bash ${ros_version} ${user_name} ${catkin_folder}' > /etc/rc.local"
 sudo sh -c "echo 'exit 0' >> /etc/rc.local"
 
 echo -e "\n\n"

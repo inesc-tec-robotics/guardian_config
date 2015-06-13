@@ -21,8 +21,8 @@ if [ "${set_cpu_governor_to_performance}" = true ]; then
 	${script_dir}/1_initial_setup/b3_cpu_scaling_performance.sh
 fi
 
-${script_dir}/1_initial_setup/c1_ros.sh ${ros_version} ${user_name}
-${script_dir}/1_initial_setup/c2_catkin_workspace.sh ${ros_version} ${catkin_folder} ${user_name}
+${script_dir}/1_initial_setup/c1_ros.bash ${ros_version} ${user_name}
+${script_dir}/1_initial_setup/c2_catkin_workspace.bash ${ros_version} ${catkin_folder} ${user_name}
 echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Finished setting up development apps and ROS"
@@ -34,7 +34,7 @@ echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Setting up guardian configuration files"
 echo "****************************************************************************************************"
-${script_dir}/2_configuration_files/setup_configuration_files.sh ${user_name} ${ros_version} ${catkin_folder}
+${script_dir}/2_configuration_files/setup_configuration_files.bash ${user_name} ${ros_version} ${catkin_folder}
 echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Finished setting up guardian configuration files"
@@ -47,10 +47,11 @@ echo "**************************************************************************
 echo "***** Setting up guardian software"
 echo "****************************************************************************************************"
 ${script_dir}/3_guardian_setup/a1_guardian_dependencies.sh ${ros_version}
-${script_dir}/3_guardian_setup/a2_guardian_sw.sh ${ros_version} ${default_branch_name} ${catkin_folder}
+${script_dir}/3_guardian_setup/a2_guardian_sw.bash ${ros_version} ${default_branch_name} ${catkin_folder}
 ${script_dir}/3_guardian_setup/a3_nfs_server.sh
 ${script_dir}/3_guardian_setup/a4_clock_syncronization.sh
-${script_dir}/3_guardian_setup/a5_joy_stick_pairing.sh ${ros_version}
+${script_dir}/3_guardian_setup/a5_joy_stick_pairing.bash ${ros_version}
+${script_dir}/3_guardian_setup/a6_intel_wireless_7260.sh
 echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Finished setting up guardian software"

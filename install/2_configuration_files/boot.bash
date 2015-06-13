@@ -8,7 +8,7 @@ catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
 #########################################################################################
 # ROS setup during boot
 # add the following lines to /etc/rc.local in order to automatically start the ros nodes at boot:
-# ${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.sh
+# ${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.bash
 # exit 0
 #########################################################################################
 
