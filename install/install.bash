@@ -49,9 +49,10 @@ echo "**************************************************************************
 ${script_dir}/3_guardian_setup/a1_guardian_dependencies.sh ${ros_version}
 ${script_dir}/3_guardian_setup/a2_guardian_sw.bash ${ros_version} ${default_branch_name} ${catkin_folder}
 ${script_dir}/3_guardian_setup/a3_nfs_server.sh
-${script_dir}/3_guardian_setup/a4_clock_syncronization.sh
-${script_dir}/3_guardian_setup/a5_joy_stick_pairing.bash ${ros_version}
+${script_dir}/3_guardian_setup/a4_remote_desktop.sh
+${script_dir}/3_guardian_setup/a5_clock_syncronization.sh
 ${script_dir}/3_guardian_setup/a6_intel_wireless_7260.sh
+${script_dir}/3_guardian_setup/a7_joy_stick_pairing.bash ${ros_version}
 echo -e "\n\n"
 echo "****************************************************************************************************"
 echo "***** Finished setting up guardian software"
