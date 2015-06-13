@@ -22,6 +22,10 @@ function clone_git_repository() {
 		echo "-------------------------------------------"
 		echo "==> Cloning ${repository_name} (branch: ${branch})"
 		git clone -b ${branch} "${repository_host}/${repository_name}.git"
+	else
+		cd ${repository_name}
+		git pull
+		cd ..
 	fi
 }
 
