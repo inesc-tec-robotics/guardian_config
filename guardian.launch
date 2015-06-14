@@ -5,7 +5,7 @@
 
 	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
-	<!-- <include file="$(find guardian_config)/hardware/guardian_driver_laser_back.launch" /> -->
+	<include file="$(find guardian_config)/hardware/guardian_driver_laser_back.launch" />
 
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_front.launch">
 		<arg name="use_tilt" default="true" if="$(arg use_6dof)" />
@@ -23,5 +23,6 @@
 	<!-- <include file="$(find guardian_config)/localization/ukf_sensor_fusion_odom_imu.launch" /> -->
 	<include file="$(find guardian_config)/localization/guardian_localization.launch" />
 	<include file="$(find guardian_config)/control/guardian_control.launch" />
+	<include file="$(find guardian_config)/planning/guardian_planner_lab.launch" />
 </launch>
 

@@ -21,7 +21,7 @@ export ROS_HOME=/home/${user_name}/.ros
 
 
 # ros environment
-source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.bash
+source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.bash ${ros_version} ${user_name} ${catkin_folder}
 
 
 # if the roscore is in another computer, uncomment the next line in order to wait for roscore to startup
@@ -29,7 +29,7 @@ source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.ba
 
 
 # guardian nodes
-roslaunch guardian_config guardian.launch --screen -v > /home/guardian/.ros/log/guardian.log 2>&1 &
+roslaunch guardian_config guardian.launch --screen -v &> /home/guardian/.ros/log/guardian.log &
 
 
 

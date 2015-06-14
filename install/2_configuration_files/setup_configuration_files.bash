@@ -3,6 +3,7 @@
 user_name=${1:-"$USER"}
 ros_version=${2:-"hydro"}
 catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
+use_crontab_for_boot_script=${4:-true}
 
 script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[0]}")" && echo X)" && script_dir="${script_dir%$'\nX'}"
 
@@ -13,6 +14,8 @@ echo "##### Setting up udev rules"
 echo "####################################################################################################"
 
 sudo cp "${script_dir}/49-carlos-hardware.rules" "/etc/udev/rules.d/49-carlos-hardware.rules"
+sudo adduser root dialout
+sudo adduser ${user_name} dialout
 sudo service udev restart
 
 echo -e "\n\n"
@@ -43,9 +46,15 @@ echo "##########################################################################
 echo "##### Setting boot script"
 echo "####################################################################################################"
 
-sudo sh -c "echo '${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.bash ${ros_version} ${user_name} ${catkin_folder}' > /etc/rc.local"
-sudo sh -c "echo 'exit 0' >> /etc/rc.local"
-sudo mkdir /home/${user_name}/.ros/log/
+if [ "${use_crontab_for_boot_script}" = true ]; then
+	sudo apt-get install cron -y
+	sudo sh -c "echo '@reboot ${user_name} ${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.bash ${ros_version} ${user_name} ${catkin_folder}' > /etc/cron.d/guardian_boot"
+else
+	sudo sh -c "echo '${catkin_folder}/src/guardian_config/install/2_configuration_files/boot.bash ${ros_version} ${user_name} ${catkin_folder}' > /etc/rc.local"
+	sudo sh -c "echo 'exit 0' >> /etc/rc.local"
+fi
+mkdir /home/${user_name}/.ros/log/
+
 
 echo -e "\n\n"
 echo "####################################################################################################"
