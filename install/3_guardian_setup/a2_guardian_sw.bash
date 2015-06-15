@@ -11,6 +11,7 @@ catkin_folder=${3:-"$HOME/catkin_ws"}
 source /opt/ros/${ros_version}/setup.bash
 
 cd ${catkin_folder}/src
+wstool init
 
 function clone_git_repository() {
 	repository_host=${1:?'Must specify repository host'}
@@ -22,6 +23,7 @@ function clone_git_repository() {
 		echo "-------------------------------------------"
 		echo "==> Cloning ${repository_name} (branch: ${branch})"
 		git clone -b ${branch} "${repository_host}/${repository_name}.git"
+		wstool set ${repository_name} "${repository_host}/${repository_name}.git" --git -y
 	else
 		echo -e "\n"
 		echo "-------------------------------------------"
@@ -73,6 +75,18 @@ echo -e "\n\n"
 echo "===================================================================="
 echo "=== Cloning navigation packages"
 echo "---> TODO <---"
+
+
+echo -e "\n\n"
+echo "----------------------------------------------------------------------------------------------------"
+echo ">>>>> Cloning git repositories finished"
+echo ">>>>> For updating each git repository use: git pull"
+echo ">>>>> For updating all repositories use:"
+echo ">>>>> cd ${catkin_ws}/src"
+echo ">>>>> wstool status"
+echo ">>>>> Commit or stash modified files"
+echo ">>>>> wstool update"
+echo "----------------------------------------------------------------------------------------------------"
 
 
 echo -e "\n\n"

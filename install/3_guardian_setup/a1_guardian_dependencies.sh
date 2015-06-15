@@ -8,6 +8,7 @@ ros_version=${1:-"$(rosversion -d)"}
 
 
 sudo apt-get install libopencv-dev -y
+sudo apt-get install python-wstool -y
 
 sudo apt-get install ros-${ros_version}-base-local-planner -y
 sudo apt-get install ros-${ros_version}-fake-localization -y
