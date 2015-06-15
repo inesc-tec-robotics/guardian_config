@@ -11,6 +11,7 @@ sudo apt-get install libopencv-dev -y
 sudo apt-get install python-wstool -y
 
 sudo apt-get install ros-${ros_version}-base-local-planner -y
+sudo apt-get install ros-${ros_version}-controller-manager -y
 sudo apt-get install ros-${ros_version}-fake-localization -y
 sudo apt-get install ros-${ros_version}-gmapping -y
 sudo apt-get install ros-${ros_version}-hector-gazebo-plugins -y

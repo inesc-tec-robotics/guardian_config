@@ -138,6 +138,8 @@ sudo apt-get install sysstat -y
 sudo apt-get install htop -y
 sudo apt-get install iotop -y
 sudo apt-get install python-pip -y
+sudo apt-get install lm-sensors -y
+sudo sensors-detect
 
 
 
