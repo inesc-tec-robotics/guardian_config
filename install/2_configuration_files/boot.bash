@@ -3,6 +3,7 @@
 ros_version=${1:-"hydro"}
 user_name=${2:-"guardian"}
 catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
+using_projection_mapping=${4:-"true"}
 
 
 #########################################################################################
@@ -12,8 +13,8 @@ catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
 # exit 0
 #########################################################################################
 
-
 # setup environment for guardian user
+export DISPLAY=:0
 export USER=${user_name}
 export HOME=/home/${user_name}
 export LOGNAME=${user_name}
@@ -31,6 +32,9 @@ source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.ba
 # guardian nodes
 roslaunch guardian_config guardian.launch --screen -v &> /home/guardian/.ros/log/guardian.log &
 
+if [ "${using_projection_mapping}" = true ]; then
+	until wmctrl -r /virtual_camera/image_raw -b toggle,fullscreen ; do sleep 1; done
+fi
 
 
 # use the following command to follow the output of the running nodes

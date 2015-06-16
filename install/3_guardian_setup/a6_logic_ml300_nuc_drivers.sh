@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 echo "####################################################################################################"
-echo "##### Installing Latest Intel Wireless 7260 driver (https://wireless.wiki.kernel.org/en/users/Drivers/iwlwifi)"
+echo "##### Installing latest Intel Wireless 7260 driver (https://wireless.wiki.kernel.org/en/users/Drivers/iwlwifi)"
 echo "####################################################################################################"
 
 cd ~
@@ -15,3 +15,13 @@ sudo cp iwlwifi-*.ucode /lib/firmware
 
 cd ~
 rm -rf drivers
+
+
+
+echo "####################################################################################################"
+echo "##### Installing Intel drivers"
+echo "####################################################################################################"
+
+sudo apt-get install xserver-xorg-video-intel-lts-trusty -y
+sudo apt-get install mesa-utils -y
+
