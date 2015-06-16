@@ -1,0 +1,16 @@
+<launch>
+  <node pkg="joy" type="joy_node" name="driver_joy" output="screen">
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="autorepeat_rate" value="10"/>
+    <param name="coalesce_interval" value="0.05"/>
+  </node>
+  <node pkg="turtlebot_teleop" type="turtlebot_teleop_joy" name="control_joy" output="screen">
+    <remap from="~/cmd_vel" to="/guardian/cmd_vel" />
+    <param name="axis_linear" value="1"/>
+    <param name="axis_angular" value="2"/>
+    <param name="axis_deadman" value="4"/>
+    <param name="scale_linear" value="0.5"/>
+    <param name="scale_angular" value="1.6"/>
+  </node>
+
+</launch>

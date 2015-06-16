@@ -10,7 +10,13 @@ catkin_folder=${3:-"$HOME/catkin_ws"}
 
 source /opt/ros/${ros_version}/setup.bash
 
-cd ${catkin_folder}/src
+cd "${catkin_folder}/src"
+if [ $? -ne 0 ]; then
+	mkdir -p "${catkin_ws}/src"
+	cd "${catkin_folder}/src"
+	catkin_init_workspace
+fi
+
 wstool init
 
 function clone_git_repository() {
@@ -110,9 +116,10 @@ echo "===================================================================="
 echo "=== Building catkin workspace"
 cd "${catkin_folder}"
 
-find ./src -name "*.sh" -exec chmod +x {} \;
 find ./src -name "*.bash" -exec chmod +x {} \;
 find ./src -name "*.cfg" -exec chmod +x {} \;
+find ./src -name "*.sh" -exec chmod +x {} \;
+
 
 catkin_make
 

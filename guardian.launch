@@ -16,10 +16,11 @@
 	<!-- <include file="$(find guardian_config)/hardware/guardian_driver_relays.launch" /> -->
 
 	<include file="$(find guardian_config)/hardware/guardian_driver_structure_io.launch" if="$(arg use_6dof)" />
-	<include file="$(find guardian_config)/hardware/guardian_driver_imu.launch" />
-	<include file="$(find guardian_config)/hardware/guardian_driver_rpi.launch" />
+	<!-- <include file="$(find guardian_config)/hardware/guardian_driver_imu.launch" /> -->
+	<!-- <include file="$(find guardian_config)/hardware/guardian_driver_rpi.launch" /> -->
 
-	<include file="$(find guardian_config)/pad/guardian_pad.launch" />
+	<!-- <include file="$(find guardian_config)/pad/guardian_pad.launch" /> -->
+	<include file="$(find guardian_config)/pad/guardian_pad_logitech.launch" />
 
 	<!-- <include file="$(find guardian_config)/localization/ukf_sensor_fusion_odom_imu.launch" /> -->
 	<include file="$(find guardian_config)/localization/guardian_localization.launch" />

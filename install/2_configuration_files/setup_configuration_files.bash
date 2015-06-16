@@ -16,6 +16,7 @@ echo "##########################################################################
 sudo cp "${script_dir}/49-carlos-hardware.rules" "/etc/udev/rules.d/49-carlos-hardware.rules"
 sudo adduser root dialout
 sudo adduser ${user_name} dialout
+sudo udevadm control --reload-rules
 sudo service udev restart
 
 echo -e "\n\n"

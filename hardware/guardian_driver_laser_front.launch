@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="use_tilt" default="true" />
+	<arg name="use_tilt" default="false" />
 
 	<!-- FRONT HOKUYO -->
 	<node name="hokuyo_front" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
