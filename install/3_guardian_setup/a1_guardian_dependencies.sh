@@ -6,7 +6,8 @@ echo "##########################################################################
 
 ros_version=${1:-"$(rosversion -d)"}
 
-
+sudo apt-get install coreutils -y
+sudo apt-get install git -y
 sudo apt-get install libopencv-dev -y
 sudo apt-get install python-wstool -y
 sudo apt-get install unclutter -y
@@ -15,6 +16,8 @@ sudo apt-get install wmctrl -y
 sudo apt-get install ros-${ros_version}-base-local-planner -y
 sudo apt-get install ros-${ros_version}-controller-manager -y
 sudo apt-get install ros-${ros_version}-fake-localization -y
+sudo apt-get install ros-${ros_version}-gazebo-plugins -y
+sudo apt-get install ros-${ros_version}-gazebo-ros -y
 sudo apt-get install ros-${ros_version}-gmapping -y
 sudo apt-get install ros-${ros_version}-hector-gazebo-plugins -y
 sudo apt-get install ros-${ros_version}-hector-mapping -y
@@ -37,6 +40,7 @@ sudo apt-get install ros-${ros_version}-roslint -y
 sudo apt-get install ros-${ros_version}-serial -y
 sudo apt-get install ros-${ros_version}-tf -y
 sudo apt-get install ros-${ros_version}-tf2 -y
+sudo apt-get install ros-${ros_version}-tf2-ros -y
 sudo apt-get install ros-${ros_version}-teleop-twist-joy -y
 sudo apt-get install ros-${ros_version}-teleop-twist-keyboard -y
 sudo apt-get install ros-${ros_version}-topic-tools -y
