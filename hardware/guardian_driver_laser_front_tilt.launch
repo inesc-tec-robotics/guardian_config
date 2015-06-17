@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="use_tilt" default="false" />
+
+	<node name="robotnik_tilt_laser" pkg="robotnik_tilt_laser" type="robotnik_tilt_laser_node" clear_params="true" output="screen" if="$(arg use_tilt)">
+		<rosparam command="load" file="$(find guardian_config)/hardware/tilt_laser.yaml" />
+	</node>
+
+	<node pkg="tf" type="static_transform_publisher" name="front_laser_static_tf"
+		args="0 0 0 0 0 0 1 hokuyo_front_laser_tilt_support_link hokuyo_front_laser_tilt_axis_link 20" unless="$(arg use_tilt)" />
+</launch>
