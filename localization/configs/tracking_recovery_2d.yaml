@@ -5,7 +5,7 @@ tracking_recovery_matchers:
 #        iterative_closest_point_non_linear:
 #        iterative_closest_point_generalized:
             convergence_time_limit_seconds: 0.250
-            max_correspondence_distance: 5.0
+            max_correspondence_distance: 2.0
             transformation_epsilon: 1e-6
             euclidean_fitness_epsilon: 1e-6
             max_number_of_registration_iterations: 150
@@ -28,4 +28,4 @@ transformation_validators_tracking_recovery:
         max_new_pose_diff_angle: 3.14
         max_new_pose_diff_distance: 2.5
         max_root_mean_square_error: 0.15
-        max_outliers_percentage: 0.4
+        max_outliers_percentage: 0.66

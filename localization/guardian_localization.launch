@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 	<!-- ======================================================================================================================== -->
- 	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" />
-<!--  	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
-	<arg name="robot_initial_x" default="4.0" />
-	<arg name="robot_initial_y" default="2.0" />
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
+	<arg name="robot_initial_x" default="-2.0" />
+	<arg name="robot_initial_y" default="-1.0" />
 	<arg name="robot_initial_yaw" default="0.0" />
-
+	<arg name="nodes_respawn" default="false" />
 
 	<!-- ======================================================================================================================== -->
 	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
@@ -15,34 +15,34 @@
 
 
 	<!-- ======================================================================================================================== -->
-	<include file="$(find dynamic_robot_localization)/launch/dynamic_robot_localization_system.launch" >
+	<include file="$(find dynamic_robot_localization)/launch/dynamic_robot_localization_system.launch">
 		<!-- frame ids -->
 		<arg name="base_link_frame_id" default="base_footprint" />
 		<arg name="sensor_frame_id" default="base_footprint" />
-	
+
 		<!-- main configurations -->
-		<arg name="nodes_respawn" default="false" />
+		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
 		<arg name="yaml_configuration_filters_filename" default="$(find guardian_config)/localization/configs/filters_large_map_2d.yaml" />
-<!-- 		<arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" /> -->
+		<!-- <arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" /> -->
 		<arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" />
 		<arg name="yaml_configuration_tracking_filename" default="$(find guardian_config)/localization/configs/tracking_cluttered_environments_dynamic_large_map_2d.yaml" />
 		<arg name="yaml_configuration_recovery_filename" default="$(find guardian_config)/localization/configs/tracking_recovery_2d.yaml" />
-	
+
 		<!-- reference map data -->
 		<arg name="reference_pointcloud_available" default="true" />
 		<arg name="reference_pointcloud_type_3d" default="false" />
 		<arg name="reference_pointcloud_update_mode" default="NoIntegration" /> <!-- NoIntegration | FullIntegration | InliersIntegration | OutliersIntegration -->
-		
+
 		<!-- intial pose setup -->
 		<arg name="robot_initial_pose_in_base_to_map" default="true" />
 		<arg name="robot_initial_x" default="$(arg robot_initial_x)" />
 		<arg name="robot_initial_y" default="$(arg robot_initial_y)" />
 		<arg name="robot_initial_yaw" default="$(arg robot_initial_yaw)" />
-		<arg name="publish_initial_pose" default="0" />
-		
+		<arg name="publish_initial_pose" default="false" />
+
 		<!-- sensor data from point cloud topic -->
 		<arg name="reference_costmap_topic" default="/map" />
-		
+
 		<!-- laser scan assembler -->
 		<arg name="use_laser_assembler" default="1" />
 		<arg name="laser_scan_topics" default="/guardian/laser_tilt_front+/guardian/laser_horizontal_back" />
@@ -54,13 +54,13 @@
 		<arg name="max_number_of_scans_to_assemble_per_cloud" default="20" />
 		<arg name="min_timeout_seconds_for_cloud_assembly" default="0.15" />
 		<arg name="max_timeout_seconds_for_cloud_assembly" default="1.1" />
-		<arg name="max_linear_velocity" default="0.025" /> <!-- when the linear velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
-		<arg name="max_angular_velocity" default="0.174532925" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
-		
+		<arg name="max_linear_velocity" default="0.01" /> <!-- when the linear velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
+		<arg name="max_angular_velocity" default="0.04" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
+
 		<!-- tf configurations -->
 		<arg name="publish_pose_tf_rate" default="10.0" />
 		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
-		
+
 		<!-- map update -->
 		<arg name="use_octomap_for_dynamic_map_update" default="false" />
 	</include>
