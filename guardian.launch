@@ -7,7 +7,9 @@
 	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_back.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_laser_back_supervisor.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_front.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_laser_front_supervisor.launch" />
 
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_front_tilt.launch">
 		<arg name="use_tilt" default="true" if="$(arg use_6dof)" />

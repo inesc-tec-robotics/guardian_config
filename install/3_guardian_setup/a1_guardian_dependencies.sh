@@ -18,6 +18,7 @@ sudo apt-get install ros-${ros_version}-controller-manager -y
 sudo apt-get install ros-${ros_version}-fake-localization -y
 sudo apt-get install ros-${ros_version}-gazebo-plugins -y
 sudo apt-get install ros-${ros_version}-gazebo-ros -y
+sudo apt-get install ros-${ros_version}-geometry-msgs -y
 sudo apt-get install ros-${ros_version}-gmapping -y
 sudo apt-get install ros-${ros_version}-hector-gazebo-plugins -y
 sudo apt-get install ros-${ros_version}-hector-mapping -y
@@ -37,7 +38,9 @@ sudo apt-get install ros-${ros_version}-ros-control -y
 sudo apt-get install ros-${ros_version}-ros-controllers -y
 sudo apt-get install ros-${ros_version}-rosbag -y
 sudo apt-get install ros-${ros_version}-roslint -y
+sudo apt-get install ros-${ros_version}-sensor-msgs -y
 sudo apt-get install ros-${ros_version}-serial -y
+sudo apt-get install ros-${ros_version}-std-msgs -y
 sudo apt-get install ros-${ros_version}-tf -y
 sudo apt-get install ros-${ros_version}-tf2 -y
 sudo apt-get install ros-${ros_version}-tf2-ros -y

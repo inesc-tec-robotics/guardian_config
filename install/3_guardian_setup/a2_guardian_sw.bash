@@ -73,6 +73,7 @@ fi
 echo -e "\n\n"
 echo "===================================================================="
 echo "=== Cloning localization packages"
+clone_git_repository "https://github.com/inesc-tec-robotics" "robot_localization_tools" "${default_branch_name}"
 clone_git_repository "https://github.com/inesc-tec-robotics" "dynamic_robot_localization" "${default_branch_name}"
 ${catkin_folder}/src/dynamic_robot_localization/install/install.bash
 

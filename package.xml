@@ -48,6 +48,7 @@
 	<run_depend>pose_to_tf_publisher_node</run_depend>			<!-- https://github.com/inesc-tec-robotics/pose_to_tf_publisher -->
 	<run_depend>rly_08</run_depend>								<!-- https://github.com/RobotnikAutomation/rly_08 -->
 	<run_depend>robotnik_tilt_laser</run_depend>				<!-- https://github.com/inesc-tec-robotics/robotnik_tilt_laser -->
+	<run_depend>robot_localization_tools</run_depend>			<!-- https://github.com/inesc-tec-robotics/robot_localization_tools -->
 	<run_depend>srau_decision</run_depend>
  	<run_depend>um7</run_depend>								<!-- https://github.com/inesc-tec-robotics/um7 -->
 
