@@ -6,6 +6,7 @@
 
 	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" />
+	<include file="$(find guardian_config)/hardware/guardian_driver_motors_odom_tf.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_back.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_back_supervisor.launch" />
 	<include file="$(find guardian_config)/hardware/guardian_driver_laser_front.launch" />
