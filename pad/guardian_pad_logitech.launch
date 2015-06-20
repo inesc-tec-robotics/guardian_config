@@ -9,8 +9,8 @@
     <param name="axis_linear" value="1"/>
     <param name="axis_angular" value="2"/>
     <param name="axis_deadman" value="4"/>
-    <param name="scale_linear" value="0.5"/>
-    <param name="scale_angular" value="1.6"/>
+    <param name="scale_linear" value="1.0"/>
+    <param name="scale_angular" value="1.57"/>
   </node>
 
 </launch>
