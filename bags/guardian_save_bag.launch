@@ -5,11 +5,12 @@
 	
 	<arg name="sensor_topics"  default="/camera/depth/camera_info /camera/depth/image_raw/compressedDepth /guardian/cmd_vel /guardian/imu/mpu_9150/imu /guardian/imu/mpu_9150/magnetic_field /guardian/imu/mpu_9150/pose /guardian/imu/mpu_9150/pose_ned /guardian/imu/mpu_9150/pose_with_covariance /guardian/imu/mpu_9150/vector_rpy /guardian/imu/mpu_9150/vector_rpy_ned /guardian/imu/um7/imu /guardian/imu/um7/magnetic_field /guardian/imu/um7/pose /guardian/imu/um7/temperature /guardian/imu/um7/vector_rpy /guardian/laser_horizontal_back /guardian/laser_tilt_front /guardian/odom /guardian_node/state /joint_states /joy /rosout /tf /tf_static" />
 	<arg name="localization_topics"  default="/dynamic_robot_localization/localization_pose /dynamic_robot_localization/localization_detailed /dynamic_robot_localization/localization_times /dynamic_robot_localization/aligned_pointcloud_outliers /dynamic_robot_localization/aligned_pointcloud_inliers" />
-	<arg name="navigation_topics"  default="/Astar_plan /arrows_marker_array /oea_controller/zones_visualization_markers /oea_controller/warning_laser_visualization_markers /oea_controller/protective_laser_visualization_markers /oea_controller/next_target /move_base_simple/goal /trajectory" />
+	<arg name="navigation_topics"  default="/oea_controller/protective_laser_markers /oea_controller/warning_laser_markers /oea_planner/arrows_marker_array /oea_planner/inflation_cloud /oea_planner/plan /move_base_simple/goal /oea_controller/next_target /pose_goal /trajectory" />
 	<arg name="map_topics" default="/map /map_navigation" />
+	<arg name="action_topics" default="/nav /plan /carlos/base_state /carlos/move_platform/cancel /carlos/move_platform/goal /carlos/move_platform/result" />
 	
 	<arg name="record_topics_temp" if="$(arg save_only_sensor_data)" default="$(arg sensor_topics)" />
-	<arg name="record_topics_temp" unless="$(arg save_only_sensor_data)" default="$(arg sensor_topics) $(arg localization_topics) $(arg navigation_topics)" />
+	<arg name="record_topics_temp" unless="$(arg save_only_sensor_data)" default="$(arg sensor_topics) $(arg localization_topics) $(arg navigation_topics) $(arg action_topics)" />
 	<arg name="record_topics" if="$(arg save_map_data)" default="$(arg record_topics_temp) $(arg map_topics)" />
 	<arg name="record_topics" unless="$(arg save_map_data)" default="$(arg record_topics_temp)" />
 	
