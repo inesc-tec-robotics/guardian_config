@@ -2,7 +2,7 @@
 <launch>
 	<arg name="use_6dof" default="false" />
 	<arg name="use_projection_mapping" default="false" />
-	<arg name="save_bags" default="true" />
+	<arg name="save_bags" default="false" />
 	<param name="/use_sim_time" value="false" />
 
 	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch" />
@@ -31,7 +31,7 @@
 	<!-- <include file="$(find guardian_config)/localization/ukf_sensor_fusion_odom_imu.launch" /> -->
 	<include file="$(find guardian_config)/localization/guardian_localization.launch" />
 	<include file="$(find guardian_config)/control/guardian_control.launch" />
-	<include file="$(find guardian_config)/planning/guardian_planner_lab.launch" />
+	<include file="$(find guardian_config)/planning/guardian_planner_delta.launch" />
 	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping.launch" if="$(arg use_projection_mapping)" />
 
 	<include file="$(find guardian_config)/bags/guardian_save_bag.launch" if="$(arg save_bags)">

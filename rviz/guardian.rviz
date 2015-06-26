@@ -5,13 +5,12 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /TF1/Frames1
         - /Sensors1
         - /Localization1
         - /Navigation1
-        - /Navigation1/ProtectiveLaserMarkerArray1/Status1
+        - /Navigation1/ArrowsMarkerArray1
       Splitter Ratio: 0.613248
-    Tree Height: 843
+    Tree Height: 815
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -35,12 +34,12 @@ Visualization Manager:
   Class: ""
   Displays:
     - Class: rviz/Axes
-      Enabled: false
+      Enabled: true
       Length: 0.25
       Name: Axes
       Radius: 0.02
       Reference Frame: <Fixed Frame>
-      Value: false
+      Value: true
     - Alpha: 1
       Cell Size: 1
       Class: rviz/Grid
@@ -60,7 +59,7 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 0.5
-      Cell Size: 0.05
+      Cell Size: 0.01
       Class: rviz/Grid
       Color: 122; 122; 125
       Enabled: true
@@ -80,144 +79,142 @@ Visualization Manager:
     - Alpha: 0.5
       Class: rviz/RobotModel
       Collision Enabled: true
-      Enabled: true
+      Enabled: false
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        camera_link_support_axis:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        hokuyo_back_laser_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        hokuyo_front_laser_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        hokuyo_front_laser_tilt_axis_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        hokuyo_front_laser_tilt_support_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        imu_mpu_9150_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        imu_um7_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        left_track:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_tw_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_tw_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_tw_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_tw_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_tw_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_track:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_tw_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_tw_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_tw_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_tw_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_tw_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        support_bottom_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        support_top_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: true
+      Value: false
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        arm_0_link:
+          Value: true
+        arm_1_link:
+          Value: true
+        arm_2_link:
+          Value: true
+        arm_3_link:
+          Value: true
+        arm_4_link:
+          Value: true
+        arm_5_link:
+          Value: true
+        arm_6_link:
+          Value: true
+        back_left_wheel:
+          Value: true
+        back_right_wheel:
+          Value: true
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        camera_link:
+          Value: true
+        camera_link_support_axis:
+          Value: true
+        coupler_link:
+          Value: true
+        front_left_wheel:
+          Value: true
+        front_right_wheel:
+          Value: true
+        ft45_link:
+          Value: true
+        hokuyo_back_laser_link:
+          Value: true
+        hokuyo_front_laser_link:
+          Value: true
+        hokuyo_front_laser_tilt_axis_link:
+          Value: true
+        hokuyo_front_laser_tilt_support_link:
+          Value: true
+        imu_link:
+          Value: true
+        imu_mpu_9150_link:
+          Value: true
+        left_track:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        projector_link:
+          Value: true
+        right_track:
+          Value: true
+        support_bottom_link:
+          Value: true
+        support_top_link:
+          Value: true
+        tool_link:
+          Value: true
+        v_camera_link:
+          Value: true
       Marker Scale: 0.1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_footprint:
+              base_link:
+                arm_0_link:
+                  arm_1_link:
+                    arm_2_link:
+                      arm_3_link:
+                        arm_4_link:
+                          arm_5_link:
+                            arm_6_link:
+                              ft45_link:
+                                coupler_link:
+                                  projector_link:
+                                    {}
+                                  tool_link:
+                                    {}
+                                  v_camera_link:
+                                    {}
+                back_left_wheel:
+                  {}
+                back_right_wheel:
+                  {}
+                front_left_wheel:
+                  {}
+                front_right_wheel:
+                  {}
+                hokuyo_back_laser_link:
+                  {}
+                hokuyo_front_laser_tilt_support_link:
+                  hokuyo_front_laser_tilt_axis_link:
+                    hokuyo_front_laser_link:
+                      {}
+                imu_link:
+                  {}
+                imu_mpu_9150_link:
+                  {}
+                left_track:
+                  {}
+                right_track:
+                  {}
+                support_bottom_link:
+                  support_top_link:
+                    camera_link_support_axis:
+                      camera_link:
+                        {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 0.7
       Class: rviz/Map
       Color Scheme: map
@@ -226,6 +223,14 @@ Visualization Manager:
       Name: Map
       Topic: /map
       Value: true
+    - Alpha: 0.7
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Map navigation
+      Topic: /map_navigation
+      Value: false
     - Class: rviz/Group
       Displays:
         - Angle Tolerance: 0.1
@@ -250,7 +255,7 @@ Visualization Manager:
           Color: 255; 170; 0
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 1.61321e-19
@@ -266,7 +271,7 @@ Visualization Manager:
           Topic: /guardian/laser_horizontal_back
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -279,7 +284,7 @@ Visualization Manager:
           Color: 255; 0; 0
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 0; 0
           Max Intensity: 1.61321e-19
@@ -295,7 +300,7 @@ Visualization Manager:
           Topic: /guardian/laser_tilt_front
           Use Fixed Frame: true
           Use rainbow: false
-          Value: false
+          Value: true
         - Alpha: 0.3
           Class: rviz_plugin_tutorials/Imu
           Color: 85; 170; 127
@@ -402,7 +407,7 @@ Visualization Manager:
           Queue Size: 1
           Transport Hint: raw
           Value: false
-      Enabled: false
+      Enabled: true
       Name: Sensors
     - Class: rviz/Group
       Displays:
@@ -825,13 +830,13 @@ Visualization Manager:
           Topic: /oea_controller/next_target
           Value: true
         - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /arrows_marker_array
+          Enabled: true
+          Marker Topic: /my_planner/arrows_marker_array
           Name: ArrowsMarkerArray
           Namespaces:
-            {}
+            arrows_namespace: true
           Queue Size: 100
-          Value: false
+          Value: true
         - Class: rviz/MarkerArray
           Enabled: false
           Marker Topic: /oea_controller/warning_laser_visualization_markers
@@ -849,13 +854,13 @@ Visualization Manager:
           Queue Size: 100
           Value: false
         - Class: rviz/MarkerArray
-          Enabled: true
+          Enabled: false
           Marker Topic: /oea_controller/zones_visualization_markers
           Name: ZonesMarkerArray
           Namespaces:
-            zones_namespace: true
+            {}
           Queue Size: 100
-          Value: true
+          Value: false
         - Alpha: 0.025
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -910,7 +915,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: 1.57
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
@@ -919,16 +924,16 @@ Visualization Manager:
         Value: false
       Name: Current View
       Near Clip Distance: 0.01
-      Scale: 228.175
+      Scale: 193.887
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: -1.53427
-      Y: -1.08984
+      X: 0.779341
+      Y: 2.64147
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: true
-  Height: 1056
+  Height: 500
   Hide Left Dock: true
   Hide Right Dock: true
   Image Kinect Color:
@@ -937,15 +942,15 @@ Window Geometry:
     collapsed: false
   Image Kinect IR:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000021b000003dafc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730000000028000003da000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000240049006d0061006700650020004b0069006e0065006300740020004400650070007400680000000307000000fb0000001600fffffffb000000240049006d0061006700650020004b0069006e00650063007400200043006f006c006f0072000000034a000000b80000001600fffffffb0000001e0049006d0061006700650020004b0069006e00650063007400200049005200000002ec000001160000001600ffffff000000010000010f000003dafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000003da000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d0065000000000000000780000002f600fffffffb0000000800540069006d0065010000000000000450000000000000000000000780000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000021b000003befc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730000000028000003be000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000240049006d0061006700650020004b0069006e0065006300740020004400650070007400680000000307000000fb0000001600fffffffb000000240049006d0061006700650020004b0069006e00650063007400200043006f006c006f0072000000034a000000b80000001600fffffffb0000001e0049006d0061006700650020004b0069006e00650063007400200049005200000002ec000001160000001600ffffff0000000100000190000003befc0200000004fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000028000001890000006400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000028000001530000000000000000fb0000000a0056006900650077007300000001b70000022f000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d0065000000000000000780000002f600fffffffb0000000800540069006d0065010000000000000450000000000000000000000780000001ae00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
     collapsed: false
   Tool Properties:
-    collapsed: false
+    collapsed: true
   Views:
     collapsed: true
   Width: 1920
-  X: 0
-  Y: 24
+  X: -10
+  Y: 14
