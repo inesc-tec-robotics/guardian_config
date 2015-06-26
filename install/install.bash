@@ -4,8 +4,9 @@ set_cpu_governor_to_performance=${1:-"false"}
 install_logic_ml300_nuc_drivers=${2:-"true"}
 ros_version=${3:-"hydro"}
 default_branch_name=${4:-"hydro-devel"}
-user_name=${5:-"$USER"}
-catkin_folder=${6:-"/home/${user_name}/catkin_ws"}
+default_arm_branch_name=${5:-"hydro_dev"}
+user_name=${6:-"$USER"}
+catkin_folder=${7:-"/home/${user_name}/catkin_ws"}
 
 
 script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[0]}")" && echo X)" && script_dir="${script_dir%$'\nX'}"
@@ -49,7 +50,7 @@ echo "**************************************************************************
 echo "***** Setting up guardian software"
 echo "****************************************************************************************************"
 ${script_dir}/3_guardian_setup/a1_guardian_dependencies.sh ${ros_version}
-${script_dir}/3_guardian_setup/a2_guardian_sw.bash ${ros_version} ${default_branch_name} ${catkin_folder}
+${script_dir}/3_guardian_setup/a2_guardian_sw.bash ${ros_version} ${default_branch_name} ${default_arm_branch_name} ${catkin_folder}
 ${script_dir}/3_guardian_setup/a3_nfs_server.sh
 ${script_dir}/3_guardian_setup/a4_remote_desktop.sh
 ${script_dir}/3_guardian_setup/a5_clock_syncronization.sh

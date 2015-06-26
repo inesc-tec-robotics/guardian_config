@@ -6,12 +6,22 @@ echo "##########################################################################
 
 ros_version=${1:-"$(rosversion -d)"}
 
+
+echo "\n\n"
+echo "===================================================================="
+echo "=== Installing system dependencies"
+
 sudo apt-get install coreutils -y
 sudo apt-get install git -y
 sudo apt-get install libopencv-dev -y
 sudo apt-get install python-wstool -y
 sudo apt-get install unclutter -y
 sudo apt-get install wmctrl -y
+
+
+echo "\n\n"
+echo "===================================================================="
+echo "=== Installing overall guardian_ros_pkg dependencies"
 
 sudo apt-get install ros-${ros_version}-base-local-planner -y
 sudo apt-get install ros-${ros_version}-controller-manager -y
@@ -49,6 +59,25 @@ sudo apt-get install ros-${ros_version}-teleop-twist-joy -y
 sudo apt-get install ros-${ros_version}-teleop-twist-keyboard -y
 sudo apt-get install ros-${ros_version}-topic-tools -y
 sudo apt-get install ros-${ros_version}-urg-node -y
+
+
+echo "\n\n"
+echo "===================================================================="
+echo "=== Installing arm dependencies"
+
+sudo apt-get install ros-${ros_version}-brics-actuator -y
+sudo apt-get install ros-${ros_version}-cob-description -y
+sudo apt-get install ros-${ros_version}-cob-srvs -y
+sudo apt-get install ros-${ros_version}-libpcan -y
+sudo apt-get install ros-${ros_version}-libntcan -y
+sudo apt-get install ros-${ros_version}-moveit-commander -y
+sudo apt-get install ros-${ros_version}-moveit-core -y
+sudo apt-get install ros-${ros_version}-moveit-ikfast -y
+sudo apt-get install ros-${ros_version}-moveit-planners-ompl -y
+sudo apt-get install ros-${ros_version}-moveit-plugins -y
+sudo apt-get install ros-${ros_version}-moveit-pr2 -y
+sudo apt-get install ros-${ros_version}-moveit-ros-move-group -y
+sudo apt-get install ros-${ros_version}-pr2-controllers -y
 
 
 echo "\n\n"

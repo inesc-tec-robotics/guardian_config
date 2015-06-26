@@ -6,7 +6,8 @@ echo "##########################################################################
 
 ros_version=${1:-"$(rosversion -d)"}
 default_branch_name=${2:-"hydro-devel"}
-catkin_folder=${3:-"$HOME/catkin_ws"}
+default_arm_branch_name=${3:-"hydro_dev"}
+catkin_folder=${4:-"$HOME/catkin_ws"}
 
 source /opt/ros/${ros_version}/setup.bash
 
@@ -82,6 +83,41 @@ echo -e "\n\n"
 echo "===================================================================="
 echo "=== Cloning navigation packages"
 echo "---> TODO <---"
+
+
+echo -e "\n\n"
+echo "===================================================================="
+echo "=== Cloning schunk arm packages"
+clone_git_repository "https://github.com/ipa320/ipa_canopen" "ipa_canopen" "${default_arm_branch_name}"
+clone_git_repository "https://github.com/ipa320/schunk_modular_robotics" "schunk_modular_robotics" "${default_arm_branch_name}"
+clone_git_repository "https://github.com/ipa320/schunk_robots" "schunk_robots" "${default_arm_branch_name}"
+
+
+echo -e "\n\n"
+echo "===================================================================="
+echo "=== Downloading remaining schunk arm drivers / packages"
+
+#wget http://mozco.fe.up.pt/redmine/attachments/download/2055/lwa4p_moveit_config_141111.tar.bz2
+#wget http://mozco.fe.up.pt/redmine/attachments/download/2056/moveit_ik_plugin_lwa4p_141111.tar.bz2
+#tar xvjf lwa4p_moveit_config_141111.tar.bz2
+#tar xvjf moveit_ik_plugin_lwa4p_141111.tar.bz2
+#rm lwa4p_moveit_config_141111.tar.bz2
+#rm moveit_ik_plugin_lwa4p_141111.tar.bz2
+
+
+cd ~
+mkdir drivers
+cd drivers
+wget http://www.peak-system.com/fileadmin/media/linux/files/peak-linux-driver-7.9.tar.gz
+tar zxvf peak-linux-driver-7.9.tar.gz
+cd peak-linux-driver-7.9/driver
+make NET=NO_NETDEV_SUPPORT
+sudo make install
+
+cd ~
+rm -rf drivers
+
+cd "${catkin_folder}/src"
 
 
 echo -e "\n\n"

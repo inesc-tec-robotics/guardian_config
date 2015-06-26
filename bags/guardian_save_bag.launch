@@ -14,12 +14,12 @@
 	<arg name="record_topics" if="$(arg save_map_data)" default="$(arg record_topics_temp) $(arg map_topics)" />
 	<arg name="record_topics" unless="$(arg save_map_data)" default="$(arg record_topics_temp)" />
 	
-	<arg name="compress_rosbags" default="0" />
+	<arg name="compress_rosbags" default="1" />
 	<arg name="record_rosbags_options" default="--bz2" if="$(arg compress_rosbags)"/>
 	<arg name="record_rosbags_options" default="" unless="$(arg compress_rosbags)"/>
 
 	<arg name="world_rosbag_folder" default="$(find guardian_config)/bags/deltamatic" />
-	<arg name="world_rosbag_filename" default="lab" />
+	<arg name="world_rosbag_filename" default="deltamatic" />
 
 	<node pkg="rosbag" type="record" name="rosbag_record" args="$(arg record_rosbags_options) -o $(arg world_rosbag_folder)/$(arg world_rosbag_filename) $(arg record_topics)" />
 </launch>
