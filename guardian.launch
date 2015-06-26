@@ -24,8 +24,9 @@
 	<!-- <include file="$(find guardian_config)/hardware/guardian_driver_imu.launch" /> -->
 	<!-- <include file="$(find guardian_config)/hardware/guardian_driver_rpi.launch" /> -->
 
-	<!-- <include file="$(find guardian_config)/pad/guardian_pad.launch" /> -->
-	<include file="$(find guardian_config)/pad/guardian_pad_logitech.launch" />
+	<include file="$(find guardian_config)/pad/guardian_pad.launch">
+		<!-- <arg name="pad_configuration" default="ps3" /> -->
+	</include>
 
 	<!-- <include file="$(find guardian_config)/localization/ukf_sensor_fusion_odom_imu.launch" /> -->
 	<include file="$(find guardian_config)/localization/guardian_localization.launch" />
@@ -33,7 +34,7 @@
 	<include file="$(find guardian_config)/planning/guardian_planner_lab.launch" />
 	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping.launch" if="$(arg use_projection_mapping)" />
 
-	<include file="$(find guardian_config)/bags/guardian_save_bag.launch" if="$(arg save_bags)" >
+	<include file="$(find guardian_config)/bags/guardian_save_bag.launch" if="$(arg save_bags)">
 		<arg name="compress_rosbags" default="false" />
 	</include>
 </launch>

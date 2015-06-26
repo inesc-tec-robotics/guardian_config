@@ -1,21 +1,25 @@
 <?xml version="1.0"?>
 <launch>
+	<arg name="pad_configuration" default="logitech" />
+	<arg name="pad_port" default="/dev/input/js0" />
 
- <!-- joy node -->
-  <node name="joy" pkg="joy" type="joy_node" respawn="false">
-    <param name="dev" type="string" value="/dev/input/ps3joy" />
-    <param name="deadzone" value="0.12" />
-  </node>
+	<!-- joy node -->
+	<node name="joy" pkg="joy" type="joy_node" respawn="false">
+		<param name="dev" type="string" value="$(arg pad_port)" />
+		<param name="deadzone" value="0.12" />
+		<param name="autorepeat_rate" value="10" />
+		<param name="coalesce_interval" value="0.05" />
+	</node>
 
-  <!-- Parameters -->
-  <param name="cmd_topic_vel" value="/guardian/cmd_vel" type="string"/>
-  <param name="cmd_service_io" value="/rly_08_node/set_digital_outputs" type="string"/>
+	<!-- Parameters -->
+	<param name="cmd_topic_vel" value="/guardian/cmd_vel" type="string" />
+	<param name="cmd_service_io" value="/rly_08_node/set_digital_outputs" type="string" />
 	<!-- <param name="cmd_service_io" value="/modbus_io/write_digital_output" type="string"/> -->
 	<!-- <param name="cmd_service_io" value="/modbus_io/input_output" type="string"/> -->
-  <!-- <param name="cmd_topic_ptz" value="/axis/cmd_ptz" type="string"/> -->
-  
-  <rosparam command="load" file="$(find guardian_config)/pad/ps3.yaml" />
-  <node name="guardian_pad" pkg="guardian_pad" type="guardian_pad" output="screen" />
-  
+	<!-- <param name="cmd_topic_ptz" value="/axis/cmd_ptz" type="string"/> -->
+
+	<rosparam command="load" file="$(find guardian_config)/pad/$(arg pad_configuration).yaml" />
+	<node name="guardian_pad" pkg="guardian_pad" type="guardian_pad" output="screen" />
+
 </launch>
 
