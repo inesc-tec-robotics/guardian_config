@@ -13,7 +13,7 @@ source /opt/ros/${ros_version}/setup.bash
 
 cd "${catkin_folder}/src"
 if [ $? -ne 0 ]; then
-	mkdir -p "${catkin_ws}/src"
+	mkdir -p "${catkin_folder}/src"
 	cd "${catkin_folder}/src"
 	catkin_init_workspace
 fi
@@ -125,7 +125,7 @@ echo "--------------------------------------------------------------------------
 echo ">>>>> Cloning git repositories finished"
 echo ">>>>> For updating each git repository use: git pull"
 echo ">>>>> For updating all repositories use:"
-echo ">>>>> cd ${catkin_ws}/src"
+echo ">>>>> cd ${catkin_folder}/src"
 echo ">>>>> wstool status"
 echo ">>>>> Commit or stash modified files"
 echo ">>>>> wstool update"
