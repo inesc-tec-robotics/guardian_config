@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 	<!-- ======================================================================================================================== -->
-	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" />
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" /> -->
 	<arg name="robot_initial_x" default="-2.0" />
 	<arg name="robot_initial_y" default="-1.0" />
 	<arg name="robot_initial_yaw" default="0.0" />
@@ -55,8 +55,10 @@
 		<arg name="max_number_of_scans_to_assemble_per_cloud" default="10" />
 		<arg name="min_timeout_seconds_for_cloud_assembly" default="0.15" />
 		<arg name="max_timeout_seconds_for_cloud_assembly" default="1.1" />
-		<arg name="max_linear_velocity" default="0.005" /> <!-- when the linear velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
-		<arg name="max_angular_velocity" default="0.04" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
+		<arg name="max_linear_velocity" default="0.005" /> <!-- when the linear velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum 
+			values specified above -->
+		<arg name="max_angular_velocity" default="0.04" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their 
+			minimum values specified above -->
 
 		<!-- tf configurations -->
 		<arg name="publish_pose_tf_rate" default="10.0" />

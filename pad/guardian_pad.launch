@@ -20,6 +20,5 @@
 
 	<rosparam command="load" file="$(find guardian_config)/pad/$(arg pad_configuration).yaml" />
 	<node name="guardian_pad" pkg="guardian_pad" type="guardian_pad" output="screen" />
-
 </launch>
 

@@ -22,6 +22,8 @@
 		<param name="stop_at_exact_target" value="false" /> <!-- true = stops in the exact cell, false = stops at one of the neighbors -->
 		<param name="allow_unkown" value="true" />
 		<param name="publish_entire_pcd" value="false" />
+		<param name="use_frontal_laser" value="true" />
+		<param name="use_back_laser" value="true" />
 	</node>
 </launch>
 
