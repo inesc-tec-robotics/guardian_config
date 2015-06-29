@@ -18,4 +18,4 @@ tilt_laser_stop_service_io: '/robotnik_tilt_laser/stop'
 max_linear_speed: 1.5 # m/s
 max_angular_speed: 1.57 # rad/s
 initial_linear_vel: 0.5
-initial_angular_vel: 0.79
+initial_angular_vel: 0.2

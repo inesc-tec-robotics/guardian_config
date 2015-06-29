@@ -11,6 +11,7 @@
 
 		<param name="global_frame_id" value="map" />
 		<param name="base_frame_id" value="base_footprint" />
+		<param name="plan_topic" value="/oea_planner/plan"/> 
 
 		<!-- Tolerance and velocity parameters -->
 		<param name="tolerance_d" value="0.05" />
@@ -58,7 +59,7 @@
 
 		<param name="stop_with_joystick" value="false" />  <!-- use joystick to stop the robot -->
 
-		<param name="use_yaw_on_middle_points" value="false" />  <!-- use orientation information in the middle path points -->
+		<param name="use_yaw_on_middle_points" value="true" />  <!-- use orientation information in the middle path points -->
 	</node>
 </launch>
 
