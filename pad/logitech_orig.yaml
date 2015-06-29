@@ -1,0 +1,26 @@
+# Logitech F710 wireless gamepad
+num_of_buttons: 12 
+axis_linear_x: 1
+axis_linear_y: 0
+axis_angular: 2
+scale_linear_x: 1.0
+scale_linear_y: 1.0
+scale_angular: 2.0
+button_speed_up: 3 # (Y) button (orange)
+button_speed_down: 1 # (A) button (green)
+button_dead_man: 5 # [RB] button
+button_output_1: 9
+button_output_2: 8
+output_1: 0
+output_2: 2
+button_ptz_tilt_up: 4 # [LB] button
+button_ptz_tilt_down: 6 # [LT] button
+button_ptz_pan_right: 3
+button_ptz_pan_left: 2
+button_kinematic_mode: 0
+tilt_increment: 5
+button_tilt_laser_start: 4 # [LB] button
+button_tilt_laser_stop: 6 # [LT] button
+tilt_laser_start_service_io: '/robotnik_tilt_laser_cloud/start'
+tilt_laser_stop_service_io: '/robotnik_tilt_laser_cloud/stop'
+speed_increment: 0.05

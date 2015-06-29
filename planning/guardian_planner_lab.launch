@@ -3,17 +3,17 @@
 	<!-- this map has windows as obstacles -->
 	<!--<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/ship_walls_navigation.yaml" /> -->
 
-	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_20mm.yaml" /> -->
-	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_interior_corner_navigation_10mm.yaml" />
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_20mm.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_interior_corner_navigation_10mm.yaml" /> -->
 
 	<node name="map_server_navigation" pkg="map_server" type="map_server" args="$(arg map_file)">
 		<param name="frame_id" value="map" />
 		<remap from="/map" to="/map_navigation" />
-	</node>-->
+	</node>
 
 
 	<node name="oea_planner" pkg="my_planner" type="my_planner" output="screen">
-		<!-- <remap from="/map" to="/map_navigation" />-->
+		<remap from="/map" to="/map_navigation" />
 		<param name="global_frame_id" value="map" />
 		<param name="base_frame_id" value="base_footprint" />
 		<param name="robot_x_size" value="1.2" />
