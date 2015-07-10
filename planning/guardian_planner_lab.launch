@@ -3,9 +3,9 @@
 	<!-- this map has windows as obstacles -->
 	<!--<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/ship_walls_navigation.yaml" /> -->
 
-	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_20mm_navigation.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_20mm_navigation.yaml" />
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_interior_corner_navigation_10mm.yaml" /> -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_navigation_20mm.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_navigation_20mm.yaml" /> -->
 
 	<node name="map_server_navigation" pkg="map_server" type="map_server" args="$(arg map_file)">
 		<param name="frame_id" value="map" />
