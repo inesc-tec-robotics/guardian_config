@@ -5,13 +5,29 @@
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" /> -->
+
+	<arg name="initial_2d_map_file" default="$(arg map_file)" />
+
 	<arg name="robot_initial_x" default="-2.0" />
 	<arg name="robot_initial_y" default="-1.0" />
 	<arg name="robot_initial_yaw" default="0.0" />
 	<arg name="nodes_respawn" default="false" />
 
+	<arg name="use_slam" default="false" />
+
+	<arg name="use_back_laser_only" default="false" />
+	<arg name="use_front_laser_only" default="false" />
+	<arg name="use_both_lasers" default="true" />
+
+	<arg name="sensor_frame_id" default="base_footprint" if="$(arg use_both_lasers)" />
+	<arg name="sensor_frame_id" default="hokuyo_back_laser_link" if="$(arg use_back_laser_only)" />
+	<arg name="sensor_frame_id" default="hokuyo_front_laser_link" if="$(arg use_front_laser_only)" />
+	<arg name="laser_scan_topics" default="/guardian/laser_horizontal_back" if="$(arg use_back_laser_only)" />
+	<arg name="laser_scan_topics" default="/guardian/laser_tilt_front" if="$(arg use_front_laser_only)" />
+	<arg name="laser_scan_topics" default="/guardian/laser_tilt_front+/guardian/laser_horizontal_back" if="$(arg use_both_lasers)" />
+
 	<!-- ======================================================================================================================== -->
-	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" unless="$(arg use_slam)">
 		<param name="frame_id" value="map" />
 	</node>
 
@@ -24,16 +40,21 @@
 
 		<!-- main configurations -->
 		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
-		<arg name="yaml_configuration_filters_filename" default="$(find guardian_config)/localization/configs/filters_large_map_2d.yaml" />
+		<arg name="yaml_configuration_filters_filename" default="$(find dynamic_robot_localization)/yaml/configs/filters/filters_large_map_2d_slam.yaml" if="$(arg use_slam)" />
+		<arg name="yaml_configuration_filters_filename" default="$(find guardian_config)/localization/configs/filters_large_map_2d.yaml" unless="$(arg use_slam)" />
 		<!-- <arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" /> -->
 		<arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" />
-		<arg name="yaml_configuration_tracking_filename" default="$(find guardian_config)/localization/configs/tracking_cluttered_environments_dynamic_large_map_2d.yaml" />
+		<arg name="yaml_configuration_tracking_filename" default="$(find dynamic_robot_localization)/yaml/configs/pose_tracking/cluttered_environments_dynamic_large_map_slam_2d.yaml" if="$(arg use_slam)" />
+		<arg name="yaml_configuration_tracking_filename" default="$(find guardian_config)/localization/configs/tracking_cluttered_environments_dynamic_large_map_2d.yaml" unless="$(arg use_slam)" />
 		<arg name="yaml_configuration_recovery_filename" default="$(find guardian_config)/localization/configs/tracking_recovery_2d.yaml" />
 
 		<!-- reference map data -->
-		<arg name="reference_pointcloud_available" default="true" />
+		<arg name="reference_pointcloud_available" default="false" if="$(arg use_slam)" />
+		<arg name="reference_pointcloud_available" default="true" unless="$(arg use_slam)" />
 		<arg name="reference_pointcloud_type_3d" default="false" />
-		<arg name="reference_pointcloud_update_mode" default="NoIntegration" /> <!-- NoIntegration | FullIntegration | InliersIntegration | OutliersIntegration -->
+		<arg name="reference_pointcloud_update_mode" default="OutliersIntegration" if="$(arg use_slam)" /> <!-- NoIntegration | FullIntegration | InliersIntegration | OutliersIntegration -->
+		<arg name="reference_pointcloud_update_mode" default="NoIntegration" unless="$(arg use_slam)" />
+		<arg name="initial_2d_map_file" default="$(arg initial_2d_map_file)" />
 
 		<!-- intial pose setup -->
 		<arg name="robot_initial_pose_in_base_to_map" default="true" />
@@ -47,7 +68,7 @@
 
 		<!-- laser scan assembler -->
 		<arg name="use_laser_assembler" default="1" />
-		<arg name="laser_scan_topics" default="/guardian/laser_tilt_front+/guardian/laser_horizontal_back" />
+		<arg name="laser_scan_topics" default="$(arg laser_scan_topics)" />
 		<arg name="number_of_tf_queries_for_spherical_interpolation" default="4" />
 		<arg name="number_of_scans_to_assemble_per_cloud" default="4" />
 		<arg name="timeout_for_cloud_assembly" default="1.0" />
@@ -56,16 +77,23 @@
 		<arg name="max_number_of_scans_to_assemble_per_cloud" default="10" />
 		<arg name="min_timeout_seconds_for_cloud_assembly" default="0.15" />
 		<arg name="max_timeout_seconds_for_cloud_assembly" default="1.1" />
-		<arg name="max_linear_velocity" default="0.005" /> <!-- when the linear velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum 
-			values specified above -->
-		<arg name="max_angular_velocity" default="0.04" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their 
-			minimum values specified above -->
+		<arg name="max_linear_velocity" default="0.005" /> <!-- when the linear velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
+		<arg name="max_angular_velocity" default="0.04" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
 
 		<!-- tf configurations -->
 		<arg name="publish_pose_tf_rate" default="10.0" />
 		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
 
 		<!-- map update -->
-		<arg name="use_octomap_for_dynamic_map_update" default="false" />
+		<arg name="use_octomap_for_dynamic_map_update" default="true" if="$(arg use_slam)" />
+		<arg name="use_octomap_for_dynamic_map_update" default="false" unless="$(arg use_slam)" />
+		<arg name="use_octomap_only_to_build_occupancy_grid" default="false" />
+		<arg name="octomap_pointcloud_topic" default="aligned_pointcloud" />  <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
+		<arg name="octomap_file" default="" />
+		<arg name="octomap_resolution" default="0.02" />
+		<arg name="octomap_minimum_amount_of_time_between_ros_msg_publishing" default="0.5" />
+		<arg name="octomap_minimum_number_of_integrations_before_ros_msg_publishing" default="2" />
+		<arg name="octomap_override_sensor_z" default="true" />
+		<arg name="octomap_override_sensor_z_value" default="0.0" />
 	</include>
 </launch>
