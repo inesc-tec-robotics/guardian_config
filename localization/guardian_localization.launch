@@ -2,9 +2,10 @@
 <launch>
 	<!-- ======================================================================================================================== -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_5mm.yaml" /> -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/map_delta_back.yaml" />
 
 	<arg name="initial_2d_map_file" default="$(arg map_file)" />
 
