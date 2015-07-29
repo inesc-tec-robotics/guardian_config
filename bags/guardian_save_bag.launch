@@ -26,5 +26,5 @@
 
 
 <!-- Usage: -->
-<!-- roslaunch guardian_config guardian_save_bag.launch & -->
+<!-- roslaunch guardian_config guardian_save_bag.launch & disown -->
 <!-- kill -SIGINT `pidof record` -->
