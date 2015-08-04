@@ -4,7 +4,7 @@
 		<param name="topic_name" type="string" value="/guardian/laser_tilt_front" />
 		<param name="topic_type" type="string" value="LaserScan" />
 		<param name="topic_type_module" type="string" value="sensor_msgs.msg" />
-		<param name="recovery_command" type="string" value="rosnode kill hokuyo_front ; roslaunch guardian_config guardian_driver_laser_front.launch" />
+		<param name="recovery_command" type="string" value="rosnode kill hokuyo_front ; roslaunch guardian_config guardian_driver_laser_front_urg_10lx.launch" />
 		<param name="polling_rate" type="double" value="1.0" />
 		<param name="max_seconds_of_msgs_absence" type="double" value="10.0" />
 		<param name="minimum_seconds_between_recovery_commands" type="double" value="20.0" />

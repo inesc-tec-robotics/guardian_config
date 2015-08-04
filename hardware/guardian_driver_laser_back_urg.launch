@@ -7,7 +7,7 @@
 		<param name="calibrate_time" type="bool" value="true" />
 		<param name="intensity" type="bool" value="false" />
 		<param name="frame_id" type="string" value="hokuyo_back_laser_link" />
-		<!-- <param name="min_ang" type="double" value="-2.0943951" /> -->
-		<!-- <param name="max_ang" type="double" value="2.0943951" /> -->
+		<param name="angle_min" type="double" value="-2.0943951" />
+		<param name="angle_max" type="double" value="2.0943951" />
 	</node>
 </launch>
