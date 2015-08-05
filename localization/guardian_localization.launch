@@ -50,7 +50,7 @@
 
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== DRL for localization / mapping -->
-	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="$(arg nodes_respawn)" unless="$(arg use_slam)">
+	<node name="map_server_localization" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="$(arg nodes_respawn)" unless="$(arg use_slam)">
 		<param name="frame_id" value="map" />
 	</node>
 	
@@ -78,7 +78,7 @@
 		<arg name="reference_pointcloud_update_mode" default="NoIntegration" unless="$(arg use_slam)" />
 		<arg name="initial_2d_map_file" default="$(arg initial_2d_map_file_slam)" />
 
-		<!-- intial pose setup -->
+		<!-- initial pose setup -->
 		<arg name="robot_initial_pose_in_base_to_map" default="true" />
 		<arg name="robot_initial_x" default="$(arg robot_initial_x)" />
 		<arg name="robot_initial_y" default="$(arg robot_initial_y)" />
@@ -123,7 +123,7 @@
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== Navigation map -->
 	<group if="$(arg update_navigation_map)" ns="$(arg nodes_namespace)" >
-		<node name="map_server" pkg="map_server" type="map_server" args="$(arg initial_2d_map_file_navigation)" respawn="$(arg nodes_respawn)" clear_params="true" output="screen" >
+		<node name="map_server_navigation_initial" pkg="map_server" type="map_server" args="$(arg initial_2d_map_file_navigation)" respawn="$(arg nodes_respawn)" clear_params="true" output="screen" >
 			<param name="frame_id" type="str" value="map" />
 			<remap from="map" to="initial_2d_map_navigation" />
 		</node>

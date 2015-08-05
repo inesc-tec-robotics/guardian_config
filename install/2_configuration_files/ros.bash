@@ -25,7 +25,7 @@ catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
 
 
 # <ROS setup>
-export ROSCONSOLE_FORMAT='[${severity}] [${node}] [${time}]: ${message} | ${file}:${function}:${line}'
+export ROSCONSOLE_FORMAT='[${severity}] [${node}] [${logger}] [${thread}] [${time}]: ${message} | ${file}:${function}:${line}'
 export ROSCONSOLE_CONFIG_FILE=/home/${user_name}/.ros/config/rosconsole.config
 export ROS_PARALLEL_JOBS='-j4 -l4'
 source /opt/ros/${ros_version}/setup.bash
