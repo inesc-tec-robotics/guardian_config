@@ -6,7 +6,7 @@
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" /> -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_20mm_slam.yaml" />
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_20mm_slam_corner.yaml" />
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/map_delta_back.yaml" /> -->
 
 
