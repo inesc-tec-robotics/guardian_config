@@ -8,8 +8,8 @@
 		<remap from="/front_laser_scan" to="/guardian/laser_tilt_front" />
 		<remap from="/back_laser_scan" to="/guardian/laser_horizontal_back" />
 
-		<!-- <rosparam file="$(find guardian_config)/control/params/params_delta_tracks.yaml" command="load" /> -->
-		<rosparam file="$(find guardian_config)/control/params/params_lab_tracks.yaml" command="load" />
+		<rosparam file="$(find guardian_config)/control/params/params_delta_tracks.yaml" command="load" />
+		<!-- <rosparam file="$(find guardian_config)/control/params/params_lab_tracks.yaml" command="load" /> -->
 	
 	</node>
 </launch>

@@ -3,9 +3,10 @@
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== DRL maps -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_5mm.yaml" /> -->
-	 <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" /> 
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_slam.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_20mm_slam.yaml" />
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/map_delta_back.yaml" /> -->
 
 
@@ -13,9 +14,10 @@
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== Navigation maps -->
 	<!--<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/lab/ship_walls_navigation.yaml" /> --> <!-- this map has windows as obstacles -->
-	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/lab/lab_20mm_navigation.yaml" />
+	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/lab/lab_20mm_navigation.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/deltamatic/ship_interior_corner_navigation_10mm.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_navigation_20mm.yaml" /> -->
+	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_40mm_slam_navigation.yaml" />
 
 
 
@@ -112,7 +114,7 @@
 		<arg name="use_octomap_only_to_build_occupancy_grid" default="false" />
 		<arg name="octomap_pointcloud_topic" default="aligned_pointcloud" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
 		<arg name="octomap_file" default="" />
-		<arg name="octomap_resolution" default="0.02" />
+		<arg name="octomap_resolution" default="0.01" />
 		<arg name="octomap_minimum_amount_of_time_between_ros_msg_publishing" default="0.5" />
 		<arg name="octomap_minimum_number_of_integrations_before_ros_msg_publishing" default="2" />
 		<arg name="octomap_override_sensor_z" default="true" />
