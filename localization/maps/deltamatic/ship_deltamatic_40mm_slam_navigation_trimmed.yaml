@@ -1,0 +1,7 @@
+image: ship_deltamatic_40mm_slam_navigation_trimmed.pgm
+resolution: 0.040000
+origin: [-9.620000, -14.780000, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
