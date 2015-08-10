@@ -1,0 +1,14 @@
+
+<launch>
+
+<!-- motion node -->
+	<node name="move_platform_server" pkg="carlos_motion_action_server" type="move_platform_server" output="screen"/>	
+
+<!-- planner launch -->	
+	<include file="$(find guardian_config)/motion/planning/guardian_planner_delta.launch" /> <!-- DELTA environment -->
+	<!-- <include file="$(find guardian_config)/motion/planning/guardian_planner_lab.launch" /> --> <!-- INESC LAB environment -->
+
+<!-- control launch -->
+	<include file="$(find guardian_config)/motion/control/guardian_control.launch" />
+
+</launch>

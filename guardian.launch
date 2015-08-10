@@ -44,8 +44,7 @@
 		<arg name="update_navigation_map" default="$(arg update_navigation_map)" />
 	</include>
 	<include file="$(find guardian_config)/localization/hector_trajectory_server.launch" />
-	<include file="$(find guardian_config)/control/guardian_control.launch" />
-	<include file="$(find guardian_config)/planning/guardian_planner_delta.launch" />
+	<include file="$(find guardian_config)/motion/guardian_motion.launch" />
 	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping.launch" if="$(arg use_projection_mapping)" />
 
 	<include file="$(find guardian_config)/bags/guardian_save_bag.launch" if="$(arg save_bags)">
