@@ -19,6 +19,7 @@ keypoint_detectors:
 
 
 initial_pose_estimators_matchers:
+    initial_pose_estimation_timeout: 300.0
     feature_matchers:
         display_feature_matching: false
         save_descriptors_in_binary_format: true
