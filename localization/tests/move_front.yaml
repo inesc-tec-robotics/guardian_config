@@ -1,0 +1,7 @@
+TwistPublisher:
+  twist_publisher_topic: /guardian/cmd_vel
+  publish_rate: 10
+  Messages:
+    - duration: 35.0
+      linear.x: 0.3
+      angular.z: 0.0

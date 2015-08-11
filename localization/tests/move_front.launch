@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="robot_localization_tools" type="rlt_twist_publisher_node" name="rlt_twist_publisher_node_guardian_move_front" output="screen" >
+		<rosparam command="load" file="$(find guardian_config)/localization/tests/move_front.yaml" />
+	</node>
+</launch>
+

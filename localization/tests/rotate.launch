@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="robot_localization_tools" type="rlt_twist_publisher_node" name="rlt_twist_publisher_node_guardian_rotate" output="screen" >
+		<rosparam command="load" file="$(find guardian_config)/localization/tests/rotate.yaml" />
+	</node>
+</launch>
+
