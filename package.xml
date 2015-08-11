@@ -39,11 +39,10 @@
 	<!-- ################################################################## -->
 
 	<run_depend>dynamic_robot_localization</run_depend>			<!-- https://github.com/inesc-tec-robotics/dynamic_robot_localization -->
-	<run_depend>layered_astar</run_depend>
 	<run_depend>guardian_description</run_depend>				<!-- https://github.com/inesc-tec-robotics/guardian_ros_pkg -->
 	<run_depend>guardian_node</run_depend>						<!-- https://github.com/inesc-tec-robotics/guardian_ros_pkg -->
 	<run_depend>guardian_pad</run_depend>						<!-- https://github.com/inesc-tec-robotics/guardian_ros_pkg -->
-	<run_depend>my_planner</run_depend>
+	<run_depend>oea_planner</run_depend>
 	<run_depend>oea_controller</run_depend>
 	<run_depend>pose_to_tf_publisher_node</run_depend>			<!-- https://github.com/inesc-tec-robotics/pose_to_tf_publisher -->
 	<run_depend>rly_08</run_depend>								<!-- https://github.com/RobotnikAutomation/rly_08 -->
