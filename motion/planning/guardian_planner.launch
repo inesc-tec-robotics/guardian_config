@@ -11,6 +11,10 @@
 		<param name="publish_entire_pcd" value="false" />
 		<param name="use_frontal_laser" value="true" />
 		<param name="use_back_laser" value="true" />
+		<param name="cost_scale" value="0" />
+		<param name="level_closest" value="0" />
+		<param name="level_middle" value="0" />
+		<param name="level_farthest" value="0" />
 	</node>
 </launch>
 

@@ -3,7 +3,6 @@
 	<arg name="use_wheels" default="false" />
 
 	<node type="guardian_node_nxt" name="guardian_node" pkg="guardian_node" output="screen">
-		<!-- <remap from="/joint_states" to="/joint_states_temp" /> -->
 		<param name="motor_dev" value="/dev/vscom_usb_com_cable" type="string"/> <!-- Rs232-USB -->
 		<param name="modbus_io_topic" value="/modbus_io/input_output" type="string"/>
 		<param name="max_linear_speed" value="1.5" type="double"/> <!-- m/s -->
@@ -12,5 +11,6 @@
 		<rosparam command="load" file="$(find guardian_config)/hardware/guardian_driver_motors_tracks.yaml" unless="$(arg use_wheels)" />
 		<param name="publish_tf" value="false" type="bool"/>
 		<param name="invert_odom_tf" value="false" type="bool"/>
+		<remap from="/joint_states" to="/joint_states_wheels" unless="$(arg use_wheels)" /> 
 	</node>
 </launch>
