@@ -1,6 +1,6 @@
 <launch>
   <node name="decision" pkg="srau_decision" type="srau_decision_node">
-  	<remap from="/pose_goal" to="/nav_goal"/> <!-- if using actions -->
+  	<remap from="/pose_goal" to="/nav_goal"/>  <!-- if using actions -->
   	<!-- <remap from="/pose_goal" to="/move_base_simple/goal"/> --> <!-- if not using actions  -->  	
     <rosparam command="load" file="$(find guardian_config)/decision/pose_goals_aimen_wall_sections.yaml" ns="pose_goals"/>
     <param name="min_position_error" value="0.1"/>
