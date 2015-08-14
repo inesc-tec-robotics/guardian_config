@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="use_wheels" default="0" />
+	<arg name="use_schunk_arm" default="1" />
 	
 	<include file="$(find guardian_description)/launch/guardian_description.launch" >
 		<arg name="use_wheels" default="$(arg use_wheels)" />
+		<arg name="use_schunk_arm" default="$(arg use_schunk_arm)" />
 	</include>
 	
 	<node name="robot_state_publisher_base" pkg="robot_state_publisher" type="state_publisher" />
