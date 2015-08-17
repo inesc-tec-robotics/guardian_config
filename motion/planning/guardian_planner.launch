@@ -15,6 +15,7 @@
 		<param name="level_closest" value="0" />
 		<param name="level_middle" value="0" />
 		<param name="level_farthest" value="0" />
+		<param name="debug" value="false" />
 	</node>
 </launch>
 
