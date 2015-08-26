@@ -1,0 +1,7 @@
+image: valina_40mm_slam.pgm
+resolution: 0.040000
+origin: [0.0, 0.0, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

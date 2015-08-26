@@ -8,7 +8,10 @@
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_10mm.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_20mm_slam_corner.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/map_delta_back.yaml" /> -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/aimen/aimen_20mm.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/aimen/aimen_20mm.yaml" /> -->
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_rotated_slam.yaml" /> -->
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_rotated.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_slam.yaml" />
 
 
 	<!-- ======================================================================================================================== -->
@@ -18,7 +21,9 @@
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/deltamatic/ship_interior_corner_navigation_10mm.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_navigation_20mm.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_40mm_slam_navigation.yaml" /> -->
-	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/aimen/aimen_40mm_navigation_with_tables.yaml" />
+	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/aimen/aimen_40mm_navigation_with_tables.yaml" /> -->
+	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/valina/valina_40mm_rotated_cad.yaml" /> -->
+	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/valina/valina_40mm_cad.yaml" />
 
 
 
@@ -97,6 +102,7 @@
 		<arg name="number_of_tf_queries_for_spherical_interpolation" default="4" />
 		<arg name="number_of_scans_to_assemble_per_cloud" default="6" />
 		<arg name="timeout_for_cloud_assembly" default="1.0" />
+		<arg name="laser_asssembler_remove_invalid_measurements" default="true" />
 		<arg name="dynamic_update_of_assembly_configuration_from_odometry_topic" default="/guardian/odom" />
 		<arg name="min_number_of_scans_to_assemble_per_cloud" default="6" />
 		<arg name="max_number_of_scans_to_assemble_per_cloud" default="25" />
