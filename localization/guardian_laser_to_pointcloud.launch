@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="laser_topic" default="/guardian/laser_tilt_front" />
+	<arg name="target_frame" default="hokuyo_front_laser_link" />
+	<arg name="laserscan_to_pointcloud_topic" default="/guardian/lasers" />
+	<arg name="nodes_respawn" default="false" />
+	<arg name="nodes_namespace" default="dynamic_robot_localization" />
+	
+	<include file="$(find laserscan_to_pointcloud)/launch/laserscan_to_pointcloud_assembler.launch" ns="$(arg nodes_namespace)" >
+		<arg name="laser_scan_topics" default="$(arg laser_topic)" />
+		<arg name="number_of_scans_to_assemble_per_cloud" default="1" />
+		<arg name="pointcloud_publish_topic" default="$(arg laserscan_to_pointcloud_topic)" />
+		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
+		<arg name="dynamic_update_of_assembly_configuration_from_twist_topic" default="" />
+		<arg name="dynamic_update_of_assembly_configuration_from_odometry_topic" default="" />
+		<arg name="dynamic_update_of_assembly_configuration_from_imu_topic" default="" />
+		<arg name="min_number_of_scans_to_assemble_per_cloud" default="1" />
+		<arg name="max_number_of_scans_to_assemble_per_cloud" default="1" />
+		<arg name="min_timeout_seconds_for_cloud_assembly" default="1.0" />
+		<arg name="max_timeout_seconds_for_cloud_assembly" default="1.0" />
+		<arg name="target_frame" default="$(arg target_frame)" />
+		<arg name="motion_estimation_source_frame_id" default="base_footprint" />
+		<arg name="motion_estimation_target_frame_id" default="odom" />
+		<arg name="laser_frame" default="" />
+		<arg name="remove_invalid_measurements" default="true" />
+		<arg name="recovery_frame" default="" />
+	</include>
+</launch>

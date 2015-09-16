@@ -38,15 +38,19 @@
 
 	<arg name="use_drl" default="true" />
 	<arg name="use_slam" default="false" />
+	<arg name="use_original_laser_scans_in_slam" default="true" />
 	<arg name="update_navigation_map" default="false" />
 
 	<arg name="use_back_laser_only" default="false" />
 	<arg name="use_front_laser_only" default="false" />
 	<arg name="use_both_lasers" default="true" />
+	<arg name="laserscans_to_pointclouds_topic" default="/guardian/lasers" />
 
 	<arg name="sensor_frame_id" default="base_footprint" if="$(arg use_both_lasers)" />
 	<arg name="sensor_frame_id" default="hokuyo_back_laser_link" if="$(arg use_back_laser_only)" />
 	<arg name="sensor_frame_id" default="hokuyo_front_laser_link" if="$(arg use_front_laser_only)" />
+	<arg name="octomap_sensor_frame_id" default="" if="$(arg use_original_laser_scans_in_slam)" />
+	<arg name="octomap_sensor_frame_id" default="$(arg sensor_frame_id)" unless="$(arg use_original_laser_scans_in_slam)" />
 	<arg name="laser_scan_topics" default="/guardian/laser_horizontal_back" if="$(arg use_back_laser_only)" />
 	<arg name="laser_scan_topics" default="/guardian/laser_tilt_front" if="$(arg use_front_laser_only)" />
 	<arg name="laser_scan_topics" default="/guardian/laser_tilt_front+/guardian/laser_horizontal_back" if="$(arg use_both_lasers)" />
@@ -64,8 +68,10 @@
 	
 	<include file="$(find dynamic_robot_localization)/launch/dynamic_robot_localization_system.launch" if="$(arg use_drl)" >
 		<!-- frame ids -->
+		<arg name="map_frame_id" default="map_drl" />
+		<arg name="odom_frame_id" default="odom" />
 		<arg name="base_link_frame_id" default="base_footprint" />
-		<arg name="sensor_frame_id" default="base_footprint" />
+		<arg name="sensor_frame_id" default="$(arg sensor_frame_id)" />
 
 		<!-- main configurations -->
 		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
@@ -112,14 +118,16 @@
 		<arg name="max_angular_velocity" default="0.04" /> <!-- when the angular velocity of the robot is equal or greater than this value, the number of scans to join and assembly timeout will be set to their minimum values specified above -->
 
 		<!-- tf configurations -->
-		<arg name="publish_pose_tf_rate" default="10.0" />
+		<arg name="publish_pose_tf_rate" default="-1.0" if="$(arg use_slam)" />
+		<arg name="publish_pose_tf_rate" default="10.0" unless="$(arg use_slam)" />
 		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
 
 		<!-- map update -->
 		<arg name="use_octomap_for_dynamic_map_update" default="true" if="$(arg use_slam)" />
 		<arg name="use_octomap_for_dynamic_map_update" default="false" unless="$(arg use_slam)" />
 		<arg name="use_octomap_only_to_build_occupancy_grid" default="false" />
-		<arg name="octomap_pointcloud_topic" default="aligned_pointcloud" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
+		<arg name="octomap_pointcloud_topic" default="$(arg laserscans_to_pointclouds_topic)" if="$(arg use_original_laser_scans_in_slam)" />
+		<arg name="octomap_pointcloud_topic" default="aligned_pointcloud" unless="$(arg use_original_laser_scans_in_slam)" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
 		<arg name="octomap_file" default="" />
 		<arg name="octomap_resolution" default="0.02" />
 		<arg name="octomap_minimum_amount_of_time_between_ros_msg_publishing" default="0.5" />
@@ -128,6 +136,22 @@
 		<arg name="octomap_override_sensor_z_value" default="0.0" />
 	</include>
 	
+	
+	<include file="$(find guardian_config)/localization/guardian_laser_to_pointcloud.launch" if="$(arg use_original_laser_scans_in_slam)" >
+		<arg name="laser_topic" default="/guardian/laser_tilt_front" />
+		<arg name="target_frame" default="hokuyo_front_laser_link" />
+		<arg name="laserscan_to_pointcloud_topic" default="$(arg laserscans_to_pointclouds_topic)" />
+		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
+		<arg name="nodes_namespace" default="$(arg nodes_namespace)" />
+	</include>
+	
+	<include file="$(find guardian_config)/localization/guardian_laser_to_pointcloud.launch" if="$(arg use_original_laser_scans_in_slam)" >
+		<arg name="laser_topic" default="/guardian/laser_horizontal_back" />
+		<arg name="target_frame" default="hokuyo_back_laser_link" />
+		<arg name="laserscan_to_pointcloud_topic" default="$(arg laserscans_to_pointclouds_topic)" />
+		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
+		<arg name="nodes_namespace" default="$(arg nodes_namespace)" />
+	</include>
 
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== Navigation map -->
@@ -140,7 +164,7 @@
 		<include file="$(find dynamic_robot_localization)/launch/octo_map.launch" >
 			<arg name="occupancy_grid_in" default="initial_2d_map_navigation" />
 			<arg name="cloud_in" default="aligned_pointcloud" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
-			<arg name="sensor_frame_id" default="$(arg sensor_frame_id)" />
+			<arg name="sensor_frame_id" default="$(arg octomap_sensor_frame_id)" />
 			<arg name="override_sensor_z" default="true" />
 			<arg name="override_sensor_z_value" default="0.0" />
 			<arg name="resolution" default="0.02" />
