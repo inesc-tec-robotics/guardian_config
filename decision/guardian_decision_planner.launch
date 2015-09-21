@@ -2,7 +2,7 @@
   <node name="decision" pkg="srau_decision" type="srau_decision_node">
   	<remap from="/pose_goal" to="/nav_goal"/>  <!-- if using actions -->
   	<!-- <remap from="/pose_goal" to="/move_base_simple/goal"/> --> <!-- if not using actions  -->  	
-    <rosparam command="load" file="$(find guardian_config)/decision/pose_goals_valina_wall_final_test.yaml" ns="pose_goals"/>
+    <rosparam command="load" file="$(find guardian_config)/decision/pose_goals_maker_faire_1.yaml" ns="pose_goals"/>
     <param name="min_position_error" value="0.1"/>
     <param name="min_orientation_error" value="3.0"/>
     <param name="synchronous" value="false"/>

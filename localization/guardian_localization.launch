@@ -9,9 +9,10 @@
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_20mm_slam_corner.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/deltamatic/map_delta_back.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/aimen/aimen_20mm.yaml" /> -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_rotated_slam.yaml" />
+	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_rotated_slam.yaml" /> -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_rotated.yaml" />  -->
 	<!-- <arg name="map_file" default="$(find guardian_config)/localization/maps/valina/valina_20mm_slam.yaml" /> -->
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/lisbon_maker_faire/lmf_20mm.yaml" />
 
 
 	<!-- ======================================================================================================================== -->
@@ -22,8 +23,9 @@
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/ship_walls/ship_walls_cad_navigation_20mm.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/deltamatic/ship_deltamatic_40mm_slam_navigation.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/aimen/aimen_40mm_navigation_with_tables.yaml" /> -->
-	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/valina/valina_40mm_rotated_cad_updated.yaml" />
+	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/valina/valina_40mm_rotated_cad_updated.yaml" /> -->
 	<!-- <arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/valina/valina_40mm_cad.yaml" /> -->
+	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/lisbon_maker_faire/lmf_40mm_navigation.yaml" />
 
 
 
@@ -32,13 +34,14 @@
 	<arg name="initial_2d_map_file_slam" default="$(arg map_file)" />
 	<arg name="initial_2d_map_file_navigation" default="$(arg map_file_navigation)" />
 
-	<arg name="robot_initial_x" default="-2.0" />
-	<arg name="robot_initial_y" default="-1.0" />
+	<arg name="robot_initial_x" default="0.0" />
+	<arg name="robot_initial_y" default="0.0" />
 	<arg name="robot_initial_yaw" default="0.0" />
 
 	<arg name="use_drl" default="true" />
 	<arg name="use_slam" default="false" />
-	<arg name="use_original_laser_scans_in_slam" default="true" />
+	<arg name="use_original_laser_scans_in_slam" default="true" if="$(arg use_slam)" />
+	<arg name="use_original_laser_scans_in_slam" default="false" unless="$(arg use_slam)" />
 	<arg name="update_navigation_map" default="false" />
 
 	<arg name="use_back_laser_only" default="false" />
@@ -62,13 +65,13 @@
 
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== DRL for localization / mapping -->
-	<node name="map_server_localization" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="$(arg nodes_respawn)" unless="$(arg use_slam)">
+	<node name="map_server_localization" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="$(arg nodes_respawn)" unless="$(arg use_slam)" >
 		<param name="frame_id" value="map" />
 	</node>
-	
+
 	<include file="$(find dynamic_robot_localization)/launch/dynamic_robot_localization_system.launch" if="$(arg use_drl)" >
 		<!-- frame ids -->
-		<arg name="map_frame_id" default="map_drl" />
+		<arg name="map_frame_id" default="map" />
 		<arg name="odom_frame_id" default="odom" />
 		<arg name="base_link_frame_id" default="base_footprint" />
 		<arg name="sensor_frame_id" default="$(arg sensor_frame_id)" />
@@ -78,8 +81,8 @@
 		<arg name="nodes_namespace" default="$(arg nodes_namespace)" />
 		<arg name="yaml_configuration_filters_filename" default="$(find dynamic_robot_localization)/yaml/configs/filters/filters_large_map_2d_slam.yaml" if="$(arg use_slam)" />
 		<arg name="yaml_configuration_filters_filename" default="$(find guardian_config)/localization/configs/filters_large_map_2d.yaml" unless="$(arg use_slam)" />
-		<!-- <arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" /> -->
-		<arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" />
+		<arg name="yaml_configuration_pose_estimation_filename" default="$(find dynamic_robot_localization)/yaml/configs/empty.yaml" if="$(arg use_slam)" />
+		<arg name="yaml_configuration_pose_estimation_filename" default="$(find guardian_config)/localization/configs/initial_pose_estimation_large_map_2d.yaml" unless="$(arg use_slam)" />
 		<arg name="yaml_configuration_tracking_filename" default="$(find dynamic_robot_localization)/yaml/configs/pose_tracking/cluttered_environments_dynamic_large_map_slam_2d.yaml" if="$(arg use_slam)" />
 		<arg name="yaml_configuration_tracking_filename" default="$(find guardian_config)/localization/configs/tracking_cluttered_environments_dynamic_large_map_2d.yaml" unless="$(arg use_slam)" />
 		<arg name="yaml_configuration_recovery_filename" default="$(find guardian_config)/localization/configs/tracking_recovery_2d.yaml" />
@@ -130,13 +133,13 @@
 		<arg name="octomap_pointcloud_topic" default="aligned_pointcloud" unless="$(arg use_original_laser_scans_in_slam)" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
 		<arg name="octomap_file" default="" />
 		<arg name="octomap_resolution" default="0.02" />
-		<arg name="octomap_minimum_amount_of_time_between_ros_msg_publishing" default="0.5" />
+		<arg name="octomap_minimum_amount_of_time_between_ros_msg_publishing" default="1.0" />
 		<arg name="octomap_minimum_number_of_integrations_before_ros_msg_publishing" default="2" />
 		<arg name="octomap_override_sensor_z" default="true" />
 		<arg name="octomap_override_sensor_z_value" default="0.0" />
 	</include>
-	
-	
+
+
 	<include file="$(find guardian_config)/localization/guardian_laser_to_pointcloud.launch" if="$(arg use_original_laser_scans_in_slam)" >
 		<arg name="laser_topic" default="/guardian/laser_tilt_front" />
 		<arg name="target_frame" default="hokuyo_front_laser_link" />
@@ -144,7 +147,7 @@
 		<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
 		<arg name="nodes_namespace" default="$(arg nodes_namespace)" />
 	</include>
-	
+
 	<include file="$(find guardian_config)/localization/guardian_laser_to_pointcloud.launch" if="$(arg use_original_laser_scans_in_slam)" >
 		<arg name="laser_topic" default="/guardian/laser_horizontal_back" />
 		<arg name="target_frame" default="hokuyo_back_laser_link" />
@@ -163,7 +166,8 @@
 
 		<include file="$(find dynamic_robot_localization)/launch/octo_map.launch" >
 			<arg name="occupancy_grid_in" default="initial_2d_map_navigation" />
-			<arg name="cloud_in" default="aligned_pointcloud" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
+			<arg name="cloud_in" default="$(arg laserscans_to_pointclouds_topic)" if="$(arg use_original_laser_scans_in_slam)" />
+			<arg name="cloud_in" default="aligned_pointcloud" unless="$(arg use_original_laser_scans_in_slam)" /> <!-- ambient_pointcloud | aligned_pointcloud | aligned_pointcloud_outliers | aligned_pointcloud_inliers -->
 			<arg name="sensor_frame_id" default="$(arg octomap_sensor_frame_id)" />
 			<arg name="override_sensor_z" default="true" />
 			<arg name="override_sensor_z_value" default="0.0" />
@@ -175,8 +179,8 @@
 			<arg name="nodes_respawn" default="$(arg nodes_respawn)" />
 		</include>
 	</group>
-	
-	
+
+
 	<node name="map_server_navigation" pkg="map_server" type="map_server" args="$(arg map_file_navigation)" respawn="$(arg nodes_respawn)" unless="$(arg update_navigation_map)" >
 		<param name="frame_id" value="map" />
 		<remap from="/map" to="/map_navigation" />

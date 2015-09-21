@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- To initialize the arm before running this launch file use: -->
+	<!-- roslaunch carlos_tracks_moveit_config powerball_real.launch -->
+	<!-- rosservice call /arm_controller/init -->
+
+
+	<!-- <include file="$(find carlos_tracks_moveit_config)/launch/powerball_real.launch" /> -->
+	<include file="$(find ftm75)/launch/ftm75.launch" />
+	
+	<node pkg="carlos_controller" type="studs_feeder" name="studs_feeder" output="screen" />
+	<node pkg="carlos_controller" type="studs_dist.py" name="studs_dist" output="screen" />
+	<node pkg="carlos_controller" type="crl_controller" name="crl_controller" output="screen" />
+	<node pkg="carlos_controller" type="arm_interface" name="arm_interface" output="screen" />
+</launch>

@@ -1,0 +1,7 @@
+image: double_wall_navigation.pgm
+resolution: 0.05000
+origin: [-25.612499, -25.612499, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

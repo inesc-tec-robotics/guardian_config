@@ -12,14 +12,14 @@ delta_angle_stuck_th: 5,
 erro_theta2_stuck_th_low: 80,
 erro_theta2_stuck_th_sup: 100,
 error_deviation_deg: 5.0,
-forward_protective_distance: 0.15, # 0.25
-forward_warning_distance: 0.6, # 0.4
+forward_protective_distance: 0.05, # 0.25
+forward_warning_distance: 0.6, # 0.15
 front_laser_link: hokuyo_front_laser_link,
 global_frame_id: map,
 k_r: 0.0,
 keep_ratio: true,
-lateral_protective_distance: 0.4, # 0.25
-lateral_warning_distance: 0.4, # 0.6
+lateral_protective_distance: 0.1, # 0.25
+lateral_warning_distance: 0.6, # 0.6
 limit_velocity: true,
 max_angular_vel: 0.3,
 max_angular_vel_hard: 999.0,

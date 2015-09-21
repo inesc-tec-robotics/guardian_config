@@ -4,7 +4,7 @@ publish_tf: false
 publish_joint: true
 joint_name: hokuyo_front_laser_tilt_joint
 
-tilt_angle_home_pps:        -86600.0
+tilt_angle_home_pps:        39000.0
 tilt_angle_floor_degrees:    20.0
 tilt_angle_ceiling_degrees: -54.0
 
