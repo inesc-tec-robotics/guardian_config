@@ -1,0 +1,7 @@
+image: lab_corridor_20mm_navigation.pgm
+resolution: 0.02
+origin: [-5.665, -3.085, 0.0] # 566 309 px
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

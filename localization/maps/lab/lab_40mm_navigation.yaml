@@ -1,5 +1,5 @@
-image: lab_20mm_navigation.pgm
-resolution: 0.02
+image: lab_40mm_navigation.pgm
+resolution: 0.04
 origin: [-5.665, -3.085, 0.0]
 negate: 0
 occupied_thresh: 0.65
