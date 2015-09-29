@@ -90,7 +90,7 @@ echo -e "\n\n"
 echo "===================================================================="
 echo "=== Cloning navigation packages"
 clone_git_repository "https://github.com/inesc-tec-robotics" "carlos_motion" "master"
-
+clone_git_repository "https://github.com/inesc-tec-robotics" "carlos_initial_goals" "master"
 
 echo -e "\n\n"
 echo "===================================================================="
