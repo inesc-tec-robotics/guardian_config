@@ -81,8 +81,15 @@ ${catkin_folder}/src/dynamic_robot_localization/install/install.bash
 
 echo -e "\n\n"
 echo "===================================================================="
+echo "=== Cloning mission control packages"
+clone_git_repository "https://github.com/inesc-tec-robotics" "carlos_mission_control" "master"
+hg clone https://bitbucket.org/ragroup/common/src
+
+
+echo -e "\n\n"
+echo "===================================================================="
 echo "=== Cloning navigation packages"
-echo "---> TODO <---"
+clone_git_repository "https://github.com/inesc-tec-robotics" "carlos_motion" "master"
 
 
 echo -e "\n\n"

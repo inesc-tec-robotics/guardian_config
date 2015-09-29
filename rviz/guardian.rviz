@@ -30,6 +30,9 @@ Panels:
         - /RobotModel1/Links1/support_top_link1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /Cloud registration1
+        - /Localization1
+        - /Navigation1
       Splitter Ratio: 0.525203
     Tree Height: 843
   - Class: rviz/Selection
@@ -87,7 +90,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         arm_5_link:
           Alpha: 1
           Show Axes: false
@@ -182,6 +184,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         left_tw_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        projector_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -1102,7 +1109,7 @@ Visualization Manager:
           Marker Topic: /oea_planner/arrows_marker_array
           Name: MarkerArray arrows
           Namespaces:
-            {}
+            arrows_namespace: true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -1147,11 +1154,11 @@ Visualization Manager:
         Value: false
       Name: Current View
       Near Clip Distance: 0.01
-      Scale: 397.363
+      Scale: 86.2697
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 2.14286
-      Y: 0.999605
+      X: 3.44521
+      Y: 2.20404
     Saved: ~
 Window Geometry:
   Displays:
