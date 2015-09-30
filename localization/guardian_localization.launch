@@ -125,6 +125,8 @@
 		<arg name="publish_pose_tf_rate" default="-1.0" if="$(arg use_slam)" />
 		<arg name="publish_pose_tf_rate" default="10.0" unless="$(arg use_slam)" />
 		<arg name="publish_last_pose_tf_timeout_seconds" default="2.0" />
+		<arg name="invert_tf_transform" default="false" />
+		<arg name="invert_tf_hierarchy" default="false" />
 
 		<!-- map update -->
 		<arg name="use_octomap_for_dynamic_map_update" default="true" if="$(arg use_slam)" />
@@ -181,9 +183,11 @@
 		</include>
 	</group>
 
-
-	<node name="map_server_navigation" pkg="map_server" type="map_server" args="$(arg map_file_navigation)" respawn="$(arg nodes_respawn)" unless="$(arg update_navigation_map)" >
-		<param name="frame_id" value="map" />
-		<remap from="/map" to="/map_navigation" />
-	</node>
+	<group unless="$(arg update_navigation_map)" >
+		<node name="relay_map_to_navigation" pkg="topic_tools" type="relay" args="/map /map_navigation" output="screen" respawn="$(arg nodes_respawn)" if="$(arg use_slam)" />
+		<node name="map_server_navigation" pkg="map_server" type="map_server" args="$(arg map_file_navigation)" respawn="$(arg nodes_respawn)" unless="$(arg use_slam)" >
+			<param name="frame_id" value="map" />
+			<remap from="/map" to="/map_navigation" />
+		</node>
+	</group>
 </launch>
