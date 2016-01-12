@@ -10,6 +10,7 @@
 	
 	<node pkg="carlos_controller" type="studs_feeder" name="studs_feeder" output="screen" />
 	<node pkg="carlos_controller" type="studs_dist.py" name="studs_dist" output="screen" />
+	<!--<node pkg="carlos_controller" type="studs_dist_manual.py" name="studs_dist_manual" output="screen" /> -->
 	<node pkg="carlos_controller" type="crl_controller" name="crl_controller" output="screen" />
 	<node pkg="carlos_controller" type="arm_interface" name="arm_interface" output="screen" />
 </launch>
