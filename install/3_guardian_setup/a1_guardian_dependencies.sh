@@ -69,8 +69,10 @@ echo "===================================================================="
 echo "=== Installing arm dependencies"
 
 sudo apt-get install ros-${ros_version}-brics-actuator ${install_args}
+sudo apt-get install ros-${ros_version}-cob-common ${install_args}
 sudo apt-get install ros-${ros_version}-cob-description ${install_args}
 sudo apt-get install ros-${ros_version}-cob-srvs ${install_args}
+sudo apt-get install ros-${ros_version}-cob-trajectory-controller ${install_args}
 sudo apt-get install ros-${ros_version}-libpcan ${install_args}
 sudo apt-get install ros-${ros_version}-libntcan ${install_args}
 sudo apt-get install ros-${ros_version}-moveit-commander ${install_args}
