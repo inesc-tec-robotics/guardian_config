@@ -1,0 +1,7 @@
+image: hipercentro_navigation_4cm.pgm
+resolution: 0.060000
+origin: [-1.64, -4.0, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

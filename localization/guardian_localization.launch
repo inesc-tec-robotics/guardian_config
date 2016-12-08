@@ -2,8 +2,8 @@
 <launch>
 	<!-- ======================================================================================================================== -->
 	<!-- =============================================================== Maps -->
-	<arg name="map_file" default="$(find guardian_config)/localization/maps/lab/lab_10mm.yaml" />
-	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/lab/lab_40mm_navigation.yaml" />
+	<arg name="map_file" default="$(find guardian_config)/localization/maps/hipercentro/van.yaml" />
+	<arg name="map_file_navigation" default="$(find guardian_config)/localization/maps/hipercentro/van_navigation.yaml" />
 
 
 	<!-- ======================================================================================================================== -->

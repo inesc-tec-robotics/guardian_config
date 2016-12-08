@@ -46,21 +46,22 @@ filters:
 #            min_neighbors_in_radius: 6
 #            invert_removal: false
 #            filtered_cloud_publish_topic: ''
-#        4_crop_box:
-#            box_min_x: -20.0
-#            box_min_y: -20.0
-#            box_min_z: -20.0
-#            box_max_x: 20.0
-#            box_max_y: 20.0
-#            box_max_z: 20.0
-#            box_translation_x: 0.0
-#            box_translation_y: 0.0
-#            box_translation_z: 0.0
-#            box_rotation_roll: 0.0
-#            box_rotation_pitch: 0.0
-#            box_rotation_yaw: 0.0
-#            invert_selection: false
-#            filtered_cloud_publish_topic: ''
+    ambient_pointcloud_map_frame:
+        4_crop_box:
+            box_min_x: -1.0
+            box_min_y: -1.0
+            box_min_z: -1.0
+            box_max_x: 3.5
+            box_max_y: 3.0
+            box_max_z: 1.0
+            box_translation_x: 0.0
+            box_translation_y: 0.0
+            box_translation_z: 0.0
+            box_rotation_roll: 0.0
+            box_rotation_pitch: 0.0
+            box_rotation_yaw: 0.0
+            invert_selection: false
+            filtered_cloud_publish_topic: ''
         5_random_sample:
             number_of_random_samples: 500
             invert_sampling: false

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="save_only_sensor_data" default="0" />
-	<arg name="save_map_data" default="0" />
+	<arg name="save_map_data" default="1" />
 	
 	<arg name="sensor_topics"  default="/camera/depth/camera_info /camera/depth/image_raw/compressedDepth /guardian/cmd_vel /guardian/imu/mpu_9150/imu /guardian/imu/mpu_9150/magnetic_field /guardian/imu/mpu_9150/pose /guardian/imu/mpu_9150/pose_ned /guardian/imu/mpu_9150/pose_with_covariance /guardian/imu/mpu_9150/vector_rpy /guardian/imu/mpu_9150/vector_rpy_ned /guardian/imu/um7/imu /guardian/imu/um7/magnetic_field /guardian/imu/um7/pose /guardian/imu/um7/temperature /guardian/imu/um7/vector_rpy /guardian/laser_horizontal_back /guardian/laser_tilt_front /guardian/odom /guardian_node/state /joint_states /joy /rosout /tf /tf_static" />
 	<arg name="localization_topics"  default="/dynamic_robot_localization/localization_pose /dynamic_robot_localization/localization_detailed /dynamic_robot_localization/localization_times /dynamic_robot_localization/aligned_pointcloud_outliers /dynamic_robot_localization/aligned_pointcloud_inliers /dynamic_robot_localization/ambient_pointcloud_filtered" />
@@ -18,8 +18,8 @@
 	<arg name="record_rosbags_options" default="--bz2" if="$(arg compress_rosbags)"/>
 	<arg name="record_rosbags_options" default="" unless="$(arg compress_rosbags)"/>
 
-	<arg name="world_rosbag_folder" default="$(find guardian_config)/bags/deltamatic" />
-	<arg name="world_rosbag_filename" default="lab" />
+	<arg name="world_rosbag_folder" default="$(find guardian_config)/bags/hipercentro" />
+	<arg name="world_rosbag_filename" default="colrobot" />
 
 	<node pkg="rosbag" type="record" name="rosbag_record" args="$(arg record_rosbags_options) -o $(arg world_rosbag_folder)/$(arg world_rosbag_filename) $(arg record_topics)" />
 </launch>
