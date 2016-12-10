@@ -1,4 +1,4 @@
-image: van.pgm
+image: van_2cm.pgm
 resolution: 0.02
 origin: [0, 0, 0]
 negate: 0

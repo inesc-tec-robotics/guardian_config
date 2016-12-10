@@ -48,11 +48,11 @@ filters:
 #            filtered_cloud_publish_topic: ''
     ambient_pointcloud_map_frame:
         4_crop_box:
-            box_min_x: -1.0
-            box_min_y: -1.0
+            box_min_x: -0.25
+            box_min_y: -0.25
             box_min_z: -1.0
-            box_max_x: 3.5
-            box_max_y: 3.0
+            box_max_x: 2.35
+            box_max_y: 2.25
             box_max_z: 1.0
             box_translation_x: 0.0
             box_translation_y: 0.0

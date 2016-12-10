@@ -1,10 +1,15 @@
 <launch>
+	<arg name="use_wheels" default="true" />
+	<arg name="robot_x_size" default="1.140" /> 								<!-- real_measurement: 1.120 -->
+	<arg name="robot_y_size" default="0.745" if="$(arg use_wheels)" /> 			<!-- real_measurement: 0.725 -->
+	<arg name="robot_y_size" default="0.525" unless="$(arg use_wheels)" /> 		<!-- real_measurement: 0.505 -->
+
 	<node name="oea_planner" pkg="oea_planner" type="oea_planner" output="screen">
 		<remap from="/map" to="/map_navigation" />
 		<param name="global_frame_id" value="map" />
 		<param name="base_frame_id" value="base_footprint" />
-		<param name="robot_x_size" value="1.2" />
-		<param name="robot_y_size" value="0.82" /> <!-- tracks: 0.55 --><!-- wheels: 0.8 -->
+		<param name="robot_x_size" value="$(arg robot_x_size)" />
+		<param name="robot_y_size" value="$(arg robot_y_size)" />
 		<param name="inflate_map_borders" value="false" />
 		<param name="stop_at_exact_target" value="false" /> <!-- true = stops in the exact cell, false = stops at one of the neighbors -->
 		<param name="allow_unkown" value="true" />
@@ -18,4 +23,3 @@
 		<param name="debug" value="false" />
 	</node>
 </launch>
-

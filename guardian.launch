@@ -3,7 +3,8 @@
 	<arg name="use_6dof" default="false" />
 	<arg name="use_projection_mapping" default="false" />
 	<arg name="save_bags" default="false" />
-	<arg name="use_wheels" default="false" />
+	<arg name="use_wheels" default="true" />
+	<arg name="use_schunk_arm" default="false" />
 	<arg name="use_slam" default="false" />
 	<arg name="update_navigation_map" default="false" />
 	
@@ -11,6 +12,7 @@
 
 	<include file="$(find guardian_config)/hardware/guardian_state_publisher.launch" >
 		<arg name="use_wheels" default="$(arg use_wheels)" />
+		<arg name="use_schunk_arm" default="$(arg use_schunk_arm)" />
 	</include>
 	
 	<include file="$(find guardian_config)/hardware/guardian_driver_motors.launch" >

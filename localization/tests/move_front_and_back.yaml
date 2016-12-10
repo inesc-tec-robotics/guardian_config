@@ -1,0 +1,34 @@
+TwistPublisher:
+  twist_publisher_topic: /guardian/cmd_vel
+  publish_rate: 10
+  Messages:
+    - duration: 10.0
+      linear.x: 0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: -0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: 0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: -0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: 0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: -0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: 0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: -0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: 0.25
+      angular.z: 0.0
+    - duration: 10.0
+      linear.x: -0.25
+      angular.z: 0.0

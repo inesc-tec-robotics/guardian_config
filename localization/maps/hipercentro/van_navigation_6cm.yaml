@@ -1,5 +1,5 @@
-image: van_navigation.pgm
-resolution: 0.04
+image: van_navigation_6cm.pgm
+resolution: 0.06
 origin: [0, 0, 0]
 negate: 0
 occupied_thresh: 0.65

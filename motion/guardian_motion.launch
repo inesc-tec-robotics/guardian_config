@@ -1,5 +1,6 @@
 
 <launch>
+	<arg name="use_wheels" default="true" />
 
 <!-- motion node (action interface for planner and controller) -->
 	<node name="move_platform_server" pkg="carlos_motion_action_server" type="move_platform_server" output="screen">
@@ -9,7 +10,9 @@
 	<node name="move_platform_client" pkg="carlos_motion_action_server" type="move_platform_client" output="screen"/> <!-- this + decision replace AAU's mission controller -->
 
 <!-- planner launch -->	
-	<include file="$(find guardian_config)/motion/planning/guardian_planner.launch" />  <!-- environment independent -->
+	<include file="$(find guardian_config)/motion/planning/guardian_planner.launch">
+		<arg name="use_wheels" default="$(arg use_wheels)" />
+	</include>
 
 <!-- control launch -->
 	<include file="$(find guardian_config)/motion/control/guardian_control.launch" />
