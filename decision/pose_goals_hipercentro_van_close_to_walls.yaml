@@ -1,3 +1,4 @@
-- {x: 3.30, y: 0.95, theta: 180.0}
-- {x: 0.64, y: 0.72, theta: -90.0}
-- {x: 0.64, y: 1.28, theta: -90.0}
+- {x: 3.30, y: 0.95, theta: 180.0, command: 'sleep 4 ; rosrun guardian_config guardian_stop_projection.bash'}
+- {x: 0.64, y: 0.72, theta: -90.0, command: 'sleep 4'}
+- {x: 0.64, y: 1.28, theta: -90.0, command: 'rosrun guardian_config guardian_projection.bash'}
+#- {x: 0.74, y: 1.18, theta: -45.0, command: 'rosrun guardian_config guardian_projection.bash'}

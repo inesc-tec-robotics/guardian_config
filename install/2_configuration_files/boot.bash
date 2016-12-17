@@ -4,6 +4,7 @@ ros_version=${1:-"hydro"}
 user_name=${2:-"guardian"}
 catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
 using_projection_mapping=${4:-"true"}
+source_folder=${5:-"/home/${user_name}/catkin_ws_aimen"}
 
 
 #########################################################################################
@@ -20,9 +21,8 @@ export HOME=/home/${user_name}
 export LOGNAME=${user_name}
 export ROS_HOME=/home/${user_name}/.ros
 
-
 # ros environment
-source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.bash ${ros_version} ${user_name} ${catkin_folder}
+source ${catkin_folder}/src/guardian_config/install/2_configuration_files/ros.bash ${ros_version} ${user_name} ${source_folder}
 
 
 # if the roscore is in another computer, uncomment the next line in order to wait for roscore to startup

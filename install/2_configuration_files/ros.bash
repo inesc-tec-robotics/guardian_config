@@ -2,7 +2,7 @@
 
 ros_version=${1:-"hydro"}
 user_name=${2:-"guardian"}
-catkin_folder=${3:-"/home/${user_name}/catkin_ws"}
+catkin_folder=${3:-"/home/${user_name}/catkin_ws_aimen"}
 
 
 #######################################################################################################################

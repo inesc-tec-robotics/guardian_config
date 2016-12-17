@@ -2,7 +2,7 @@
 	<node name="decision" pkg="srau_decision" type="srau_decision_node">
 		<remap from="/pose_goal" to="/move_base_simple/goal"/>  <!-- if using actions -->
 		<rosparam command="load" file="$(find guardian_config)/decision/pose_goals_hipercentro_van_close_to_walls.yaml" ns="pose_goals"/>
-		<param name="min_position_error" value="0.1"/>
+		<param name="min_position_error" value="0.07"/>
 		<param name="min_orientation_error" value="3.0"/>
 		<param name="synchronous" value="false"/>
 		<param name="delay" value="2"/>
